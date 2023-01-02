@@ -1,11 +1,13 @@
-cmake_minimum_required(VERSION 3.5)
+ cmake_minimum_required(VERSION 3.0)
+ project(qt_security_camera)
 
-project(main LANGUAGES CXX)
+ set(CONAN_DISABLE_CHECK_COMPILER TRUE)
+ set(CMAKE_CXX_STANDARD 17)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+ add_definitions("-std=c++11")
 
-add_executable(main main.cpp)
+ include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+ conan_basic_setup()
 
-install(TARGETS main
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ add_executable(main main.cpp)
+ target_link_libraries(main ${CONAN_LIBS})
