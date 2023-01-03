@@ -1,0 +1,12 @@
+[requires]
+qt/6.4.1
+
+[generators]
+#CMakeDeps
+#CMakeToolchain
+cmake
+
+[options]
+qt:shared=True
+#qt:qtshadertools=True
+qt:qtdeclarative=True
