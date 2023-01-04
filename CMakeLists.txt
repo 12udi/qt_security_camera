@@ -18,7 +18,7 @@ qt_add_executable(qt-conan
 qt_add_qml_module(qt-conan
     URI qtconan
     VERSION 1.0
-    QML_FILES main_ui.qml
+    QML_FILES qml/main_ui.qml
 )
 
 target_compile_definitions(qt-conan

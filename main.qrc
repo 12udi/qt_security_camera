@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/window">
-        <file>main_ui.qml</file>
+    <qresource prefix="/">
+        <file alias="main_ui.qml">qml/main_ui.qml</file>
     </qresource>
 </RCC>
