@@ -1,10 +1,27 @@
-cmake_minimum_required(VERSION 3.0.0)
-project(qt_security_camera)
+cmake_minimum_required(VERSION 3.15.0)
+project(qt-conan-project VERSION 0.1.0)
 
-add_definitions("-std=c++11")
+include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 
-# include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-# conan_basic_setup()
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(camera_app main.cpp)
-target_link_libraries(camera_app ${CONAN_LIBS})
+
+find_package(Qt6 COMPONENTS Quick REQUIRED)
+
+#include_directories(${CONAN_INCLUDE_DIRS}/qt})
+
+qt_add_executable(qt-conan
+    main.cpp
+)
+
+qt_add_qml_module(qt-conan
+    URI qtconan
+    VERSION 1.0
+    QML_FILES main_ui.qml
+)
+
+target_compile_definitions(qt-conan
+    PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
+target_link_libraries(qt-conan
+    PRIVATE Qt6::Quick)

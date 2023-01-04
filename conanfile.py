@@ -7,7 +7,8 @@ class QtConan(ConanFile):
     requires = "qt/6.4.1"
     default_options = {"qt:shared": True,
                        "qt:qtdeclarative": True,
-                       "qt:qtshadertools": True}
+                       "qt:qtshadertools": True
+                       }
 
     generators = "cmake_find_package", "cmake_paths"
 

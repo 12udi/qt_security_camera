@@ -1,9 +1,9 @@
-#include <iostream>
+#include <QtGui>
+#include <QtQml>
 
-using namespace std;
-
-int main()
+int main(int argc, char *argv[])
 {
-    cout << "Hello World!" << endl;
-    return 0;
+    QGuiApplication app(argc, argv);
+    QQmlApplicationEngine engine("../main_ui.qml");
+    return app.exec();
 }
