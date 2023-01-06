@@ -6,10 +6,7 @@ include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-
 find_package(Qt6 COMPONENTS Quick REQUIRED)
-
-#include_directories(${CONAN_INCLUDE_DIRS}/qt})
 
 qt_add_executable(qt-conan
     main.cpp
