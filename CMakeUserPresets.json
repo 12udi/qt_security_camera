@@ -1,0 +1,9 @@
+{
+    "version": 4,
+    "vendor": {
+        "conan": {}
+    },
+    "include": [
+        "/home/rudi/Develop/src/qt_security_camera/build/CMakePresets.json"
+    ]
+}
