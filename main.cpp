@@ -30,5 +30,4 @@ int main(int argc, char *argv[])
     QObject::connect(&videoStreamer,&VideoStreamer::newImage,liveImageProvider,&OpencvImageProvider::updateImage);
 
     return app.exec();
-
 }
