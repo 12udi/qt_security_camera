@@ -13,10 +13,15 @@ find_package( OpenCV REQUIRED )
 #include_directories(${CONAN_INCLUDE_DIRS}/qt})
 include_directories(${OpenCV_INCLUDE_DIRS})
 set(RESOURCE ${CMAKE_SOURCE_DIR}/resources.qrc)
+
 qt_add_resources(RESOURCE_ADDED ${RESOURCE})
 
 qt_add_executable(qt-conan
     main.cpp
+    opencvimageprovider.cpp
+    opencvimageprovider.h
+    videostreamer.cpp
+    videostreamer.h
     ${RESOURCE_ADDED}
 )
 

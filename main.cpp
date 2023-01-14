@@ -1,8 +1,8 @@
-#include <QtGui>
-#include <QtQml>
-#include <opencv4/opencv2/core.hpp>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/highgui.hpp>
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include "opencvimageprovider.h"
+#include "videostreamer.h"
+#include <QQmlContext>
 #include <iostream>
 
 using namespace cv;
@@ -12,45 +12,23 @@ int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
-//    QQmlApplicationEngine engine;
-//    engine.load(QStringLiteral("qrc:/tabs/main_ui.qml"));
+    QQmlApplicationEngine engine;
 
-//    std::string image_path = samples::findFile("starry_night.jpg");
-//    Mat img = imread(image_path, IMREAD_COLOR);
-//    if(img.empty())
-//    {
-//        std::cout << "Could not read the image: " << image_path << std::endl;
-//        return 1;
-//    }
-//    imshow("Display window", img);
-//    int k = waitKey(0); // Wait for a keystroke in the window
-//    if(k == 's')
-//    {
-//        imwrite("starry_night.png", img);
-//    }
+    VideoStreamer videoStreamer;
 
-    Mat image;
+    OpencvImageProvider *liveImageProvider(new OpencvImageProvider);
 
-    namedWindow("Display window");
+    engine.rootContext()->setContextProperty("VideoStreamer",&videoStreamer);
+    engine.rootContext()->setContextProperty("liveImageProvider",liveImageProvider);
 
-    VideoCapture cap(2);
+    engine.addImageProvider("live",liveImageProvider);
 
-    if (!cap.isOpened()) {
+    const QUrl url(QStringLiteral("qrc:/tabs/main_ui.qml"));
 
-    cout << "cannot open camera";
+    engine.load(url);
 
-    }
+    QObject::connect(&videoStreamer,&VideoStreamer::newImage,liveImageProvider,&OpencvImageProvider::updateImage);
 
-    while (true) {
+    return app.exec();
 
-    cap >> image;
-
-    imshow("Display window", image);
-
-    waitKey(25);
-
-    }
-
-    return 0;
-    return 0;
 }
