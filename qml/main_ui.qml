@@ -8,18 +8,20 @@ Window {
     visible: true
     title: qsTr("CameraLiveView")
 
-    Rectangle{
+    Rectangle
+    {
         id: imageRect
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        width: 800
-        height: 600
+        width: 320
+        height: 240
 
         color: "transparent"
         border.color: "black"
         border.width: 3
 
-        Image{
+        Image
+        {
             id: opencvImage
             anchors.fill: parent
             fillMode: Image.PreserveAspectFit
@@ -37,7 +39,8 @@ Window {
         }
     }
 
-    Button{
+    Button
+    {
         id: startButton
         x: imageRect.x/2 - startButton.width/2
         y:imageRect.height/6 + imageRect.y
@@ -49,7 +52,8 @@ Window {
         }
     }
 
-    TextField{
+    TextField
+    {
         id:videoPath
         x: startButton.x - startButton.width
         y: startButton.y + startButton.height * 2
@@ -59,7 +63,8 @@ Window {
         width: startButton.width * 3
     }
 
-    Connections{
+    Connections
+    {
         target: liveImageProvider
 
         function onImageChanged()

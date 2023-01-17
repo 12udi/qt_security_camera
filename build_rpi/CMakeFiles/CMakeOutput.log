@@ -1,0 +1,534 @@
+The target system is: Linux -  - arm
+The host system is: Linux - 5.15.79.1-microsoft-standard-WSL2+ - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/aarch64-linux-gnu-gcc-9 
+Build flags: ;-I/home/rudi/rpi-sysroot/usr/include
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/3.25.1/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/aarch64-linux-gnu-g++-9 
+Build flags: ;-I/home/rudi/rpi-sysroot/usr/include
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/3.25.1/CompilerIdCXX/a.out"
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-HmrNxm
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_de361/fast && /usr/bin/make  -f CMakeFiles/cmTC_de361.dir/build.make CMakeFiles/cmTC_de361.dir/build
+make[1]: Entering directory '/home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-HmrNxm'
+Building C object CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o
+/usr/bin/aarch64-linux-gnu-gcc-9 --sysroot=/home/rudi/rpi-sysroot   -I/home/rudi/rpi-sysroot/usr/include    -v -o CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o -c /opt/cmake-3.25.1-linux-x86_64/share/cmake-3.25/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=/usr/bin/aarch64-linux-gnu-gcc-9
+Target: aarch64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --without-target-system-zlib --enable-libpth-m2 --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=aarch64-linux-gnu --program-prefix=aarch64-linux-gnu- --includedir=/usr/aarch64-linux-gnu/include
+Thread model: posix
+gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) 
+COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o' '-c' '-mlittle-endian' '-mabi=lp64'
+ /usr/lib/gcc-cross/aarch64-linux-gnu/9/cc1 -quiet -v -I /home/rudi/rpi-sysroot/usr/include -imultiarch aarch64-linux-gnu -isysroot /home/rudi/rpi-sysroot /opt/cmake-3.25.1-linux-x86_64/share/cmake-3.25/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mlittle-endian -mabi=lp64 -auxbase-strip CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -o /tmp/cc15iQL4.s
+GNU C17 (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (aarch64-linux-gnu)
+	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/home/rudi/rpi-sysroot/usr/local/include/aarch64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc-cross/aarch64-linux-gnu/9/include-fixed"
+ignoring duplicate directory "/home/rudi/rpi-sysroot/usr/include"
+  as it is a non-system directory that duplicates a system directory
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc-cross/aarch64-linux-gnu/9/include
+ /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include
+ /home/rudi/rpi-sysroot/usr/include/aarch64-linux-gnu
+ /home/rudi/rpi-sysroot/usr/include
+End of search list.
+GNU C17 (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (aarch64-linux-gnu)
+	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: ba9f0480fe495d14d610c8fadb433b2b
+COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o' '-c' '-mlittle-endian' '-mabi=lp64'
+ /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/bin/as -v -I /home/rudi/rpi-sysroot/usr/include -EL -mabi=lp64 -o CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o /tmp/cc15iQL4.s
+GNU assembler version 2.34 (aarch64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34
+COMPILER_PATH=/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/bin/
+LIBRARY_PATH=/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/:/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu/:/home/rudi/rpi-sysroot/lib/../lib/:/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu/:/home/rudi/rpi-sysroot/usr/lib/../lib/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/:/home/rudi/rpi-sysroot/lib/:/home/rudi/rpi-sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o' '-c' '-mlittle-endian' '-mabi=lp64'
+Linking C executable cmTC_de361
+/opt/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de361.dir/link.txt --verbose=1
+/usr/bin/aarch64-linux-gnu-gcc-9 --sysroot=/home/rudi/rpi-sysroot  -I/home/rudi/rpi-sysroot/usr/include  -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o -o cmTC_de361  -Wl,-rpath,/home/rudi/rpi-sysroot 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/aarch64-linux-gnu-gcc-9
+COLLECT_LTO_WRAPPER=/usr/lib/gcc-cross/aarch64-linux-gnu/9/lto-wrapper
+Target: aarch64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --without-target-system-zlib --enable-libpth-m2 --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=aarch64-linux-gnu --program-prefix=aarch64-linux-gnu- --includedir=/usr/aarch64-linux-gnu/include
+Thread model: posix
+gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) 
+COMPILER_PATH=/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/bin/
+LIBRARY_PATH=/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/:/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu/:/home/rudi/rpi-sysroot/lib/../lib/:/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu/:/home/rudi/rpi-sysroot/usr/lib/../lib/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/:/home/rudi/rpi-sysroot/lib/:/home/rudi/rpi-sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'cmTC_de361' '-mlittle-endian' '-mabi=lp64'
+ /usr/lib/gcc-cross/aarch64-linux-gnu/9/collect2 -plugin /usr/lib/gcc-cross/aarch64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc-cross/aarch64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccpWqFXv.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/home/rudi/rpi-sysroot --build-id --eh-frame-hdr --hash-style=gnu --as-needed -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_de361 /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/Scrt1.o /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crti.o /usr/lib/gcc-cross/aarch64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc-cross/aarch64-linux-gnu/9 -L/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib -L/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu -L/home/rudi/rpi-sysroot/lib/../lib -L/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu -L/home/rudi/rpi-sysroot/usr/lib/../lib -L/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib -L/home/rudi/rpi-sysroot/lib -L/home/rudi/rpi-sysroot/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o -rpath /home/rudi/rpi-sysroot -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc-cross/aarch64-linux-gnu/9/crtendS.o /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crtn.o
+COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'cmTC_de361' '-mlittle-endian' '-mabi=lp64'
+make[1]: Leaving directory '/home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-HmrNxm'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/lib/gcc-cross/aarch64-linux-gnu/9/include]
+    add: [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include]
+    add: [/home/rudi/rpi-sysroot/usr/include/aarch64-linux-gnu]
+    add: [/home/rudi/rpi-sysroot/usr/include]
+  end of search list found
+  collapse include dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9/include] ==> [/usr/lib/gcc-cross/aarch64-linux-gnu/9/include]
+  collapse include dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include] ==> [/usr/aarch64-linux-gnu/include]
+  collapse include dir [/home/rudi/rpi-sysroot/usr/include/aarch64-linux-gnu] ==> [/home/rudi/rpi-sysroot/usr/include/aarch64-linux-gnu]
+  collapse include dir [/home/rudi/rpi-sysroot/usr/include] ==> [/home/rudi/rpi-sysroot/usr/include]
+  implicit include dirs: [/usr/lib/gcc-cross/aarch64-linux-gnu/9/include;/usr/aarch64-linux-gnu/include;/home/rudi/rpi-sysroot/usr/include/aarch64-linux-gnu;/home/rudi/rpi-sysroot/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(aarch64-linux-gnu-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-HmrNxm]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/make -f Makefile cmTC_de361/fast && /usr/bin/make  -f CMakeFiles/cmTC_de361.dir/build.make CMakeFiles/cmTC_de361.dir/build]
+  ignore line: [make[1]: Entering directory '/home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-HmrNxm']
+  ignore line: [Building C object CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/aarch64-linux-gnu-gcc-9 --sysroot=/home/rudi/rpi-sysroot   -I/home/rudi/rpi-sysroot/usr/include    -v -o CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o -c /opt/cmake-3.25.1-linux-x86_64/share/cmake-3.25/Modules/CMakeCCompilerABI.c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/aarch64-linux-gnu-gcc-9]
+  ignore line: [Target: aarch64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --without-target-system-zlib --enable-libpth-m2 --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=aarch64-linux-gnu --program-prefix=aarch64-linux-gnu- --includedir=/usr/aarch64-linux-gnu/include]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o' '-c' '-mlittle-endian' '-mabi=lp64']
+  ignore line: [ /usr/lib/gcc-cross/aarch64-linux-gnu/9/cc1 -quiet -v -I /home/rudi/rpi-sysroot/usr/include -imultiarch aarch64-linux-gnu -isysroot /home/rudi/rpi-sysroot /opt/cmake-3.25.1-linux-x86_64/share/cmake-3.25/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mlittle-endian -mabi=lp64 -auxbase-strip CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -o /tmp/cc15iQL4.s]
+  ignore line: [GNU C17 (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (aarch64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/home/rudi/rpi-sysroot/usr/local/include/aarch64-linux-gnu"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc-cross/aarch64-linux-gnu/9/include-fixed"]
+  ignore line: [ignoring duplicate directory "/home/rudi/rpi-sysroot/usr/include"]
+  ignore line: [  as it is a non-system directory that duplicates a system directory]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/lib/gcc-cross/aarch64-linux-gnu/9/include]
+  ignore line: [ /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include]
+  ignore line: [ /home/rudi/rpi-sysroot/usr/include/aarch64-linux-gnu]
+  ignore line: [ /home/rudi/rpi-sysroot/usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C17 (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (aarch64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: ba9f0480fe495d14d610c8fadb433b2b]
+  ignore line: [COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o' '-c' '-mlittle-endian' '-mabi=lp64']
+  ignore line: [ /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/bin/as -v -I /home/rudi/rpi-sysroot/usr/include -EL -mabi=lp64 -o CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o /tmp/cc15iQL4.s]
+  ignore line: [GNU assembler version 2.34 (aarch64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/bin/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/:/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu/:/home/rudi/rpi-sysroot/lib/../lib/:/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu/:/home/rudi/rpi-sysroot/usr/lib/../lib/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/:/home/rudi/rpi-sysroot/lib/:/home/rudi/rpi-sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o' '-c' '-mlittle-endian' '-mabi=lp64']
+  ignore line: [Linking C executable cmTC_de361]
+  ignore line: [/opt/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de361.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/aarch64-linux-gnu-gcc-9 --sysroot=/home/rudi/rpi-sysroot  -I/home/rudi/rpi-sysroot/usr/include  -Wl -O1 -Wl --hash-style=gnu -Wl --as-needed -v CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o -o cmTC_de361  -Wl -rpath /home/rudi/rpi-sysroot ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/aarch64-linux-gnu-gcc-9]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc-cross/aarch64-linux-gnu/9/lto-wrapper]
+  ignore line: [Target: aarch64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --without-target-system-zlib --enable-libpth-m2 --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=aarch64-linux-gnu --program-prefix=aarch64-linux-gnu- --includedir=/usr/aarch64-linux-gnu/include]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/bin/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/:/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu/:/home/rudi/rpi-sysroot/lib/../lib/:/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu/:/home/rudi/rpi-sysroot/usr/lib/../lib/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/:/home/rudi/rpi-sysroot/lib/:/home/rudi/rpi-sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'cmTC_de361' '-mlittle-endian' '-mabi=lp64']
+  link line: [ /usr/lib/gcc-cross/aarch64-linux-gnu/9/collect2 -plugin /usr/lib/gcc-cross/aarch64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc-cross/aarch64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccpWqFXv.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/home/rudi/rpi-sysroot --build-id --eh-frame-hdr --hash-style=gnu --as-needed -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_de361 /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/Scrt1.o /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crti.o /usr/lib/gcc-cross/aarch64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc-cross/aarch64-linux-gnu/9 -L/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib -L/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu -L/home/rudi/rpi-sysroot/lib/../lib -L/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu -L/home/rudi/rpi-sysroot/usr/lib/../lib -L/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib -L/home/rudi/rpi-sysroot/lib -L/home/rudi/rpi-sysroot/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o -rpath /home/rudi/rpi-sysroot -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc-cross/aarch64-linux-gnu/9/crtendS.o /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crtn.o]
+    arg [/usr/lib/gcc-cross/aarch64-linux-gnu/9/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc-cross/aarch64-linux-gnu/9/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc-cross/aarch64-linux-gnu/9/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccpWqFXv.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--sysroot=/home/rudi/rpi-sysroot] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux-aarch64.so.1] ==> ignore
+    arg [-X] ==> ignore
+    arg [-EL] ==> ignore
+    arg [-maarch64linux] ==> ignore
+    arg [--fix-cortex-a53-843419] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_de361] ==> ignore
+    arg [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/Scrt1.o] ==> obj [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/Scrt1.o]
+    arg [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crti.o] ==> obj [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crti.o]
+    arg [/usr/lib/gcc-cross/aarch64-linux-gnu/9/crtbeginS.o] ==> obj [/usr/lib/gcc-cross/aarch64-linux-gnu/9/crtbeginS.o]
+    arg [-L/usr/lib/gcc-cross/aarch64-linux-gnu/9] ==> dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9]
+    arg [-L/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib] ==> dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib]
+    arg [-L/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu] ==> dir [/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu]
+    arg [-L/home/rudi/rpi-sysroot/lib/../lib] ==> dir [/home/rudi/rpi-sysroot/lib/../lib]
+    arg [-L/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu] ==> dir [/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu]
+    arg [-L/home/rudi/rpi-sysroot/usr/lib/../lib] ==> dir [/home/rudi/rpi-sysroot/usr/lib/../lib]
+    arg [-L/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib] ==> dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib]
+    arg [-L/home/rudi/rpi-sysroot/lib] ==> dir [/home/rudi/rpi-sysroot/lib]
+    arg [-L/home/rudi/rpi-sysroot/usr/lib] ==> dir [/home/rudi/rpi-sysroot/usr/lib]
+    arg [-O1] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [CMakeFiles/cmTC_de361.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-rpath] ==> ignore
+    arg [/home/rudi/rpi-sysroot] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [/usr/lib/gcc-cross/aarch64-linux-gnu/9/crtendS.o] ==> obj [/usr/lib/gcc-cross/aarch64-linux-gnu/9/crtendS.o]
+    arg [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crtn.o] ==> obj [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crtn.o]
+  collapse obj [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/Scrt1.o] ==> [/usr/aarch64-linux-gnu/lib/Scrt1.o]
+  collapse obj [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crti.o] ==> [/usr/aarch64-linux-gnu/lib/crti.o]
+  collapse obj [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crtn.o] ==> [/usr/aarch64-linux-gnu/lib/crtn.o]
+  collapse library dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9] ==> [/usr/lib/gcc-cross/aarch64-linux-gnu/9]
+  collapse library dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib] ==> [/usr/aarch64-linux-gnu/lib]
+  collapse library dir [/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu] ==> [/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu]
+  collapse library dir [/home/rudi/rpi-sysroot/lib/../lib] ==> [/home/rudi/rpi-sysroot/lib]
+  collapse library dir [/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu] ==> [/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu]
+  collapse library dir [/home/rudi/rpi-sysroot/usr/lib/../lib] ==> [/home/rudi/rpi-sysroot/usr/lib]
+  collapse library dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib] ==> [/usr/aarch64-linux-gnu/lib]
+  collapse library dir [/home/rudi/rpi-sysroot/lib] ==> [/home/rudi/rpi-sysroot/lib]
+  collapse library dir [/home/rudi/rpi-sysroot/usr/lib] ==> [/home/rudi/rpi-sysroot/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit objs: [/usr/aarch64-linux-gnu/lib/Scrt1.o;/usr/aarch64-linux-gnu/lib/crti.o;/usr/lib/gcc-cross/aarch64-linux-gnu/9/crtbeginS.o;/usr/lib/gcc-cross/aarch64-linux-gnu/9/crtendS.o;/usr/aarch64-linux-gnu/lib/crtn.o]
+  implicit dirs: [/usr/lib/gcc-cross/aarch64-linux-gnu/9;/usr/aarch64-linux-gnu/lib;/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu;/home/rudi/rpi-sysroot/lib;/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu;/home/rudi/rpi-sysroot/usr/lib]
+  implicit fwks: []
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-adLI6k
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a722a/fast && /usr/bin/make  -f CMakeFiles/cmTC_a722a.dir/build.make CMakeFiles/cmTC_a722a.dir/build
+make[1]: Entering directory '/home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-adLI6k'
+Building CXX object CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/aarch64-linux-gnu-g++-9 --sysroot=/home/rudi/rpi-sysroot   -I/home/rudi/rpi-sysroot/usr/include    -v -o CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o -c /opt/cmake-3.25.1-linux-x86_64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp
+Using built-in specs.
+COLLECT_GCC=/usr/bin/aarch64-linux-gnu-g++-9
+Target: aarch64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --without-target-system-zlib --enable-libpth-m2 --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=aarch64-linux-gnu --program-prefix=aarch64-linux-gnu- --includedir=/usr/aarch64-linux-gnu/include
+Thread model: posix
+gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) 
+COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64'
+ /usr/lib/gcc-cross/aarch64-linux-gnu/9/cc1plus -quiet -v -I /home/rudi/rpi-sysroot/usr/include -imultiarch aarch64-linux-gnu -isysroot /home/rudi/rpi-sysroot -D_GNU_SOURCE /opt/cmake-3.25.1-linux-x86_64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mlittle-endian -mabi=lp64 -auxbase-strip CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -o /tmp/ccBCEfe8.s
+GNU C++14 (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (aarch64-linux-gnu)
+	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/home/rudi/rpi-sysroot/usr/local/include/aarch64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc-cross/aarch64-linux-gnu/9/include-fixed"
+ignoring duplicate directory "/home/rudi/rpi-sysroot/usr/include"
+  as it is a non-system directory that duplicates a system directory
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include/c++/9
+ /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include/c++/9/aarch64-linux-gnu
+ /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include/c++/9/backward
+ /usr/lib/gcc-cross/aarch64-linux-gnu/9/include
+ /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include
+ /home/rudi/rpi-sysroot/usr/include/aarch64-linux-gnu
+ /home/rudi/rpi-sysroot/usr/include
+End of search list.
+GNU C++14 (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (aarch64-linux-gnu)
+	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 9e5d158cf7d91a123eb60f37e1dae775
+COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64'
+ /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/bin/as -v -I /home/rudi/rpi-sysroot/usr/include -EL -mabi=lp64 -o CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccBCEfe8.s
+GNU assembler version 2.34 (aarch64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34
+COMPILER_PATH=/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/bin/
+LIBRARY_PATH=/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/:/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu/:/home/rudi/rpi-sysroot/lib/../lib/:/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu/:/home/rudi/rpi-sysroot/usr/lib/../lib/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/:/home/rudi/rpi-sysroot/lib/:/home/rudi/rpi-sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64'
+Linking CXX executable cmTC_a722a
+/opt/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a722a.dir/link.txt --verbose=1
+/usr/bin/aarch64-linux-gnu-g++-9 --sysroot=/home/rudi/rpi-sysroot  -I/home/rudi/rpi-sysroot/usr/include  -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_a722a  -Wl,-rpath,/home/rudi/rpi-sysroot 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/aarch64-linux-gnu-g++-9
+COLLECT_LTO_WRAPPER=/usr/lib/gcc-cross/aarch64-linux-gnu/9/lto-wrapper
+Target: aarch64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --without-target-system-zlib --enable-libpth-m2 --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=aarch64-linux-gnu --program-prefix=aarch64-linux-gnu- --includedir=/usr/aarch64-linux-gnu/include
+Thread model: posix
+gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) 
+COMPILER_PATH=/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/bin/
+LIBRARY_PATH=/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/:/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu/:/home/rudi/rpi-sysroot/lib/../lib/:/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu/:/home/rudi/rpi-sysroot/usr/lib/../lib/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/:/home/rudi/rpi-sysroot/lib/:/home/rudi/rpi-sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'cmTC_a722a' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64'
+ /usr/lib/gcc-cross/aarch64-linux-gnu/9/collect2 -plugin /usr/lib/gcc-cross/aarch64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc-cross/aarch64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccdDb2uA.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/home/rudi/rpi-sysroot --build-id --eh-frame-hdr --hash-style=gnu --as-needed -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_a722a /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/Scrt1.o /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crti.o /usr/lib/gcc-cross/aarch64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc-cross/aarch64-linux-gnu/9 -L/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib -L/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu -L/home/rudi/rpi-sysroot/lib/../lib -L/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu -L/home/rudi/rpi-sysroot/usr/lib/../lib -L/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib -L/home/rudi/rpi-sysroot/lib -L/home/rudi/rpi-sysroot/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o -rpath /home/rudi/rpi-sysroot -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc-cross/aarch64-linux-gnu/9/crtendS.o /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crtn.o
+COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'cmTC_a722a' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64'
+make[1]: Leaving directory '/home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-adLI6k'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include/c++/9]
+    add: [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include/c++/9/aarch64-linux-gnu]
+    add: [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include/c++/9/backward]
+    add: [/usr/lib/gcc-cross/aarch64-linux-gnu/9/include]
+    add: [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include]
+    add: [/home/rudi/rpi-sysroot/usr/include/aarch64-linux-gnu]
+    add: [/home/rudi/rpi-sysroot/usr/include]
+  end of search list found
+  collapse include dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include/c++/9] ==> [/usr/aarch64-linux-gnu/include/c++/9]
+  collapse include dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include/c++/9/aarch64-linux-gnu] ==> [/usr/aarch64-linux-gnu/include/c++/9/aarch64-linux-gnu]
+  collapse include dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include/c++/9/backward] ==> [/usr/aarch64-linux-gnu/include/c++/9/backward]
+  collapse include dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9/include] ==> [/usr/lib/gcc-cross/aarch64-linux-gnu/9/include]
+  collapse include dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include] ==> [/usr/aarch64-linux-gnu/include]
+  collapse include dir [/home/rudi/rpi-sysroot/usr/include/aarch64-linux-gnu] ==> [/home/rudi/rpi-sysroot/usr/include/aarch64-linux-gnu]
+  collapse include dir [/home/rudi/rpi-sysroot/usr/include] ==> [/home/rudi/rpi-sysroot/usr/include]
+  implicit include dirs: [/usr/aarch64-linux-gnu/include/c++/9;/usr/aarch64-linux-gnu/include/c++/9/aarch64-linux-gnu;/usr/aarch64-linux-gnu/include/c++/9/backward;/usr/lib/gcc-cross/aarch64-linux-gnu/9/include;/usr/aarch64-linux-gnu/include;/home/rudi/rpi-sysroot/usr/include/aarch64-linux-gnu;/home/rudi/rpi-sysroot/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(aarch64-linux-gnu-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-adLI6k]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/make -f Makefile cmTC_a722a/fast && /usr/bin/make  -f CMakeFiles/cmTC_a722a.dir/build.make CMakeFiles/cmTC_a722a.dir/build]
+  ignore line: [make[1]: Entering directory '/home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-adLI6k']
+  ignore line: [Building CXX object CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/aarch64-linux-gnu-g++-9 --sysroot=/home/rudi/rpi-sysroot   -I/home/rudi/rpi-sysroot/usr/include    -v -o CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o -c /opt/cmake-3.25.1-linux-x86_64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/aarch64-linux-gnu-g++-9]
+  ignore line: [Target: aarch64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --without-target-system-zlib --enable-libpth-m2 --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=aarch64-linux-gnu --program-prefix=aarch64-linux-gnu- --includedir=/usr/aarch64-linux-gnu/include]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64']
+  ignore line: [ /usr/lib/gcc-cross/aarch64-linux-gnu/9/cc1plus -quiet -v -I /home/rudi/rpi-sysroot/usr/include -imultiarch aarch64-linux-gnu -isysroot /home/rudi/rpi-sysroot -D_GNU_SOURCE /opt/cmake-3.25.1-linux-x86_64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mlittle-endian -mabi=lp64 -auxbase-strip CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -o /tmp/ccBCEfe8.s]
+  ignore line: [GNU C++14 (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (aarch64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/home/rudi/rpi-sysroot/usr/local/include/aarch64-linux-gnu"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc-cross/aarch64-linux-gnu/9/include-fixed"]
+  ignore line: [ignoring duplicate directory "/home/rudi/rpi-sysroot/usr/include"]
+  ignore line: [  as it is a non-system directory that duplicates a system directory]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include/c++/9]
+  ignore line: [ /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include/c++/9/aarch64-linux-gnu]
+  ignore line: [ /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include/c++/9/backward]
+  ignore line: [ /usr/lib/gcc-cross/aarch64-linux-gnu/9/include]
+  ignore line: [ /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include]
+  ignore line: [ /home/rudi/rpi-sysroot/usr/include/aarch64-linux-gnu]
+  ignore line: [ /home/rudi/rpi-sysroot/usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C++14 (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (aarch64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 9e5d158cf7d91a123eb60f37e1dae775]
+  ignore line: [COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64']
+  ignore line: [ /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/bin/as -v -I /home/rudi/rpi-sysroot/usr/include -EL -mabi=lp64 -o CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccBCEfe8.s]
+  ignore line: [GNU assembler version 2.34 (aarch64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/bin/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/:/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu/:/home/rudi/rpi-sysroot/lib/../lib/:/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu/:/home/rudi/rpi-sysroot/usr/lib/../lib/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/:/home/rudi/rpi-sysroot/lib/:/home/rudi/rpi-sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64']
+  ignore line: [Linking CXX executable cmTC_a722a]
+  ignore line: [/opt/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a722a.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/aarch64-linux-gnu-g++-9 --sysroot=/home/rudi/rpi-sysroot  -I/home/rudi/rpi-sysroot/usr/include  -Wl -O1 -Wl --hash-style=gnu -Wl --as-needed -v CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_a722a  -Wl -rpath /home/rudi/rpi-sysroot ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/aarch64-linux-gnu-g++-9]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc-cross/aarch64-linux-gnu/9/lto-wrapper]
+  ignore line: [Target: aarch64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --without-target-system-zlib --enable-libpth-m2 --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=aarch64-linux-gnu --program-prefix=aarch64-linux-gnu- --includedir=/usr/aarch64-linux-gnu/include]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/bin/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc-cross/aarch64-linux-gnu/9/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/:/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu/:/home/rudi/rpi-sysroot/lib/../lib/:/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu/:/home/rudi/rpi-sysroot/usr/lib/../lib/:/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/:/home/rudi/rpi-sysroot/lib/:/home/rudi/rpi-sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-I' '/home/rudi/rpi-sysroot/usr/include' '-v' '-o' 'cmTC_a722a' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64']
+  link line: [ /usr/lib/gcc-cross/aarch64-linux-gnu/9/collect2 -plugin /usr/lib/gcc-cross/aarch64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc-cross/aarch64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccdDb2uA.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/home/rudi/rpi-sysroot --build-id --eh-frame-hdr --hash-style=gnu --as-needed -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_a722a /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/Scrt1.o /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crti.o /usr/lib/gcc-cross/aarch64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc-cross/aarch64-linux-gnu/9 -L/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib -L/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu -L/home/rudi/rpi-sysroot/lib/../lib -L/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu -L/home/rudi/rpi-sysroot/usr/lib/../lib -L/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib -L/home/rudi/rpi-sysroot/lib -L/home/rudi/rpi-sysroot/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o -rpath /home/rudi/rpi-sysroot -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc-cross/aarch64-linux-gnu/9/crtendS.o /usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crtn.o]
+    arg [/usr/lib/gcc-cross/aarch64-linux-gnu/9/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc-cross/aarch64-linux-gnu/9/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc-cross/aarch64-linux-gnu/9/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccdDb2uA.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--sysroot=/home/rudi/rpi-sysroot] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux-aarch64.so.1] ==> ignore
+    arg [-X] ==> ignore
+    arg [-EL] ==> ignore
+    arg [-maarch64linux] ==> ignore
+    arg [--fix-cortex-a53-843419] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_a722a] ==> ignore
+    arg [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/Scrt1.o] ==> obj [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/Scrt1.o]
+    arg [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crti.o] ==> obj [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crti.o]
+    arg [/usr/lib/gcc-cross/aarch64-linux-gnu/9/crtbeginS.o] ==> obj [/usr/lib/gcc-cross/aarch64-linux-gnu/9/crtbeginS.o]
+    arg [-L/usr/lib/gcc-cross/aarch64-linux-gnu/9] ==> dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9]
+    arg [-L/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib] ==> dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib]
+    arg [-L/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu] ==> dir [/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu]
+    arg [-L/home/rudi/rpi-sysroot/lib/../lib] ==> dir [/home/rudi/rpi-sysroot/lib/../lib]
+    arg [-L/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu] ==> dir [/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu]
+    arg [-L/home/rudi/rpi-sysroot/usr/lib/../lib] ==> dir [/home/rudi/rpi-sysroot/usr/lib/../lib]
+    arg [-L/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib] ==> dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib]
+    arg [-L/home/rudi/rpi-sysroot/lib] ==> dir [/home/rudi/rpi-sysroot/lib]
+    arg [-L/home/rudi/rpi-sysroot/usr/lib] ==> dir [/home/rudi/rpi-sysroot/usr/lib]
+    arg [-O1] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [CMakeFiles/cmTC_a722a.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-rpath] ==> ignore
+    arg [/home/rudi/rpi-sysroot] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc-cross/aarch64-linux-gnu/9/crtendS.o] ==> obj [/usr/lib/gcc-cross/aarch64-linux-gnu/9/crtendS.o]
+    arg [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crtn.o] ==> obj [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crtn.o]
+  collapse obj [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/Scrt1.o] ==> [/usr/aarch64-linux-gnu/lib/Scrt1.o]
+  collapse obj [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crti.o] ==> [/usr/aarch64-linux-gnu/lib/crti.o]
+  collapse obj [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib/crtn.o] ==> [/usr/aarch64-linux-gnu/lib/crtn.o]
+  collapse library dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9] ==> [/usr/lib/gcc-cross/aarch64-linux-gnu/9]
+  collapse library dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib/../lib] ==> [/usr/aarch64-linux-gnu/lib]
+  collapse library dir [/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu] ==> [/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu]
+  collapse library dir [/home/rudi/rpi-sysroot/lib/../lib] ==> [/home/rudi/rpi-sysroot/lib]
+  collapse library dir [/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu] ==> [/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu]
+  collapse library dir [/home/rudi/rpi-sysroot/usr/lib/../lib] ==> [/home/rudi/rpi-sysroot/usr/lib]
+  collapse library dir [/usr/lib/gcc-cross/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/lib] ==> [/usr/aarch64-linux-gnu/lib]
+  collapse library dir [/home/rudi/rpi-sysroot/lib] ==> [/home/rudi/rpi-sysroot/lib]
+  collapse library dir [/home/rudi/rpi-sysroot/usr/lib] ==> [/home/rudi/rpi-sysroot/usr/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit objs: [/usr/aarch64-linux-gnu/lib/Scrt1.o;/usr/aarch64-linux-gnu/lib/crti.o;/usr/lib/gcc-cross/aarch64-linux-gnu/9/crtbeginS.o;/usr/lib/gcc-cross/aarch64-linux-gnu/9/crtendS.o;/usr/aarch64-linux-gnu/lib/crtn.o]
+  implicit dirs: [/usr/lib/gcc-cross/aarch64-linux-gnu/9;/usr/aarch64-linux-gnu/lib;/home/rudi/rpi-sysroot/lib/aarch64-linux-gnu;/home/rudi/rpi-sysroot/lib;/home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu;/home/rudi/rpi-sysroot/usr/lib]
+  implicit fwks: []
+
+
+Performing C++ SOURCE FILE Test HAVE_STDATOMIC succeeded with the following output:
+Change Dir: /home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-QbnhNi
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_d1c03/fast && /usr/bin/make  -f CMakeFiles/cmTC_d1c03.dir/build.make CMakeFiles/cmTC_d1c03.dir/build
+make[1]: Entering directory '/home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-QbnhNi'
+Building CXX object CMakeFiles/cmTC_d1c03.dir/src.cxx.o
+/usr/bin/aarch64-linux-gnu-g++-9 --sysroot=/home/rudi/rpi-sysroot -DHAVE_STDATOMIC  -I/home/rudi/rpi-sysroot/usr/include  -o CMakeFiles/cmTC_d1c03.dir/src.cxx.o -c /home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-QbnhNi/src.cxx
+Linking CXX executable cmTC_d1c03
+/opt/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d1c03.dir/link.txt --verbose=1
+/usr/bin/aarch64-linux-gnu-g++-9 --sysroot=/home/rudi/rpi-sysroot  -I/home/rudi/rpi-sysroot/usr/include  -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_d1c03.dir/src.cxx.o -o cmTC_d1c03  -Wl,-rpath,/home/rudi/rpi-sysroot 
+make[1]: Leaving directory '/home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-QbnhNi'
+
+
+Source file was:
+#include <atomic>
+#include <cstdint>
+
+int main(int, char **)
+{
+    volatile std::atomic<char>    size_1;
+    volatile std::atomic<short>   size_2;
+    volatile std::atomic<int>     size_4;
+    volatile std::atomic<int64_t> size_8;
+
+    ++size_1;
+    ++size_2;
+    ++size_4;
+    ++size_8;
+
+    (void)size_1.load(std::memory_order_relaxed);
+    (void)size_2.load(std::memory_order_relaxed);
+    (void)size_4.load(std::memory_order_relaxed);
+    (void)size_8.load(std::memory_order_relaxed);
+
+    return 0;
+}
+
+Performing C++ SOURCE FILE Test HAVE_EGL succeeded with the following output:
+Change Dir: /home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-PtgPpm
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_4a31f/fast && /usr/bin/make  -f CMakeFiles/cmTC_4a31f.dir/build.make CMakeFiles/cmTC_4a31f.dir/build
+make[1]: Entering directory '/home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-PtgPpm'
+Building CXX object CMakeFiles/cmTC_4a31f.dir/src.cxx.o
+/usr/bin/aarch64-linux-gnu-g++-9 --sysroot=/home/rudi/rpi-sysroot -DHAVE_EGL  -I/home/rudi/rpi-sysroot/usr/include  -o CMakeFiles/cmTC_4a31f.dir/src.cxx.o -c /home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-PtgPpm/src.cxx
+Linking CXX executable cmTC_4a31f
+/opt/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4a31f.dir/link.txt --verbose=1
+/usr/bin/aarch64-linux-gnu-g++-9 --sysroot=/home/rudi/rpi-sysroot  -I/home/rudi/rpi-sysroot/usr/include  -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_4a31f.dir/src.cxx.o -o cmTC_4a31f  -Wl,-rpath,/home/rudi/rpi-sysroot /home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu/libEGL.so 
+make[1]: Leaving directory '/home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-PtgPpm'
+
+
+Source file was:
+
+#include <EGL/egl.h>
+
+int main(int, char **) {
+    EGLint x = 0; EGLDisplay dpy = 0; EGLContext ctx = 0;
+    eglDestroyContext(dpy, ctx);
+}
+
+Performing C++ SOURCE FILE Test HAVE_GLESv2 succeeded with the following output:
+Change Dir: /home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-RRvV6j
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a1694/fast && /usr/bin/make  -f CMakeFiles/cmTC_a1694.dir/build.make CMakeFiles/cmTC_a1694.dir/build
+make[1]: Entering directory '/home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-RRvV6j'
+Building CXX object CMakeFiles/cmTC_a1694.dir/src.cxx.o
+/usr/bin/aarch64-linux-gnu-g++-9 --sysroot=/home/rudi/rpi-sysroot -DHAVE_GLESv2  -I/home/rudi/rpi-sysroot/usr/include  -o CMakeFiles/cmTC_a1694.dir/src.cxx.o -c /home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-RRvV6j/src.cxx
+Linking CXX executable cmTC_a1694
+/opt/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a1694.dir/link.txt --verbose=1
+/usr/bin/aarch64-linux-gnu-g++-9 --sysroot=/home/rudi/rpi-sysroot  -I/home/rudi/rpi-sysroot/usr/include  -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_a1694.dir/src.cxx.o -o cmTC_a1694  -Wl,-rpath,/home/rudi/rpi-sysroot /home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu/libGLESv2.so /home/rudi/rpi-sysroot/usr/lib/aarch64-linux-gnu/libEGL.so 
+make[1]: Leaving directory '/home/rudi/projects/qt_security_camera/build_rpi/CMakeFiles/CMakeScratch/TryCompile-RRvV6j'
+
+
+Source file was:
+
+#ifdef __APPLE__
+#  include <OpenGLES/ES2/gl.h>
+#else
+#  define GL_GLEXT_PROTOTYPES
+#  include <GLES2/gl2.h>
+#endif
+
+int main(int, char **) {
+    glUniform1f(1, GLfloat(1.0));
+    glClear(GL_COLOR_BUFFER_BIT);
+}
+
