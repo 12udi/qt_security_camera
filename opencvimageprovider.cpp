@@ -10,13 +10,11 @@ QImage OpencvImageProvider::requestImage(const QString &id, QSize *size, const Q
 {
     Q_UNUSED(id);
 
-    if(size)
-    {
+    if(size) {
         *size = image.size();
     }
 
-    if(requestedSize.width() > 0 && requestedSize.height() > 0)
-    {
+    if(requestedSize.width() > 0 && requestedSize.height() > 0) {
         image = image.scaled(requestedSize.width(), requestedSize.height(), Qt::KeepAspectRatio);
     }
 

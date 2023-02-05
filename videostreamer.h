@@ -18,12 +18,16 @@ public:
     void streamVideo();
 
 public slots:
-    void openVideoCamera(QString path);
+    void openVideoCamera(QString devicePath);
+    void closeVideoCamera();
+    void takeScreenshot();
 
 private:
-    cv::Mat frame;
-    cv::VideoCapture cap;
-    QTimer tUpdate;
+    cv::Mat m_CurrentFrame;
+    cv::VideoCapture m_VideoCapture;
+    QTimer m_RefreshTime;
+    bool m_CameraIsOpen;
+    QString m_DevicePath;
 
 signals:
     void newImage(QImage &);

@@ -43,7 +43,7 @@ Window {
     {
         id: startButton
         x: imageRect.x/2 - startButton.width/2
-        y:imageRect.height/6 + imageRect.y
+        y: imageRect.height/6 + imageRect.y
         text: "Open"
 
         onClicked: {
@@ -52,9 +52,38 @@ Window {
         }
     }
 
+    Button
+    {
+        id: closeButton
+        anchors.top: startButton.top
+        anchors.left: startButton.right
+        width: startButton.width
+        text: "Close"
+
+        onClicked: {
+            VideoStreamer.closeVideoCamera()
+            opencvImage.visible = false
+        }
+    }
+
+    Button
+    {
+        id: screenshotButton
+        anchors.top: startButton.bottom
+        anchors.left: startButton.left
+        anchors.right: startButton.right
+
+        text: "Screenshot"
+
+        onClicked: {
+            VideoStreamer.takeScreenshot()
+        }
+    }
+
     TextField
     {
         id:videoPath
+        text: "/dev/video0"
         x: startButton.x - startButton.width
         y: startButton.y + startButton.height * 2
         placeholderText: "Video Path or Video Index"
