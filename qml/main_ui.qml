@@ -3,19 +3,109 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.0
 
 Window {
-    width: Screen.width
-    height: Screen.height
+    width: 640
+    height: 320
     visible: true
     title: qsTr("CameraLiveView")
+
+    property int defaultButtonWidth: 160
+    property int defaultButtonHeight: 80
+
+    Button
+    {
+        id: startButton
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.right: closeButton.left
+        width: defaultButtonWidth
+        height: defaultButtonHeight
+        text: "Open"
+
+        onClicked: {
+            VideoStreamer.openVideoCamera(videoPath.text)
+            opencvImage.visible = true
+        }
+    }
+
+    Button
+    {
+        id: closeButton
+        anchors.top: parent.top
+        anchors.left: startButton.right
+        anchors.right: imageRect.left
+        width: defaultButtonWidth
+        height: defaultButtonHeight
+        text: "Close"
+
+        onClicked: {
+            VideoStreamer.closeVideoCamera()
+            opencvImage.visible = false
+        }
+    }
+
+    Button
+    {
+        id: screenshotButton
+        anchors.top: videoPath.bottom
+        anchors.left: parent.left
+        anchors.right: clearButton.left
+        width: defaultButtonWidth
+        height: defaultButtonHeight
+        text: "Screenshot"
+
+        onClicked: {
+            VideoStreamer.takeScreenshot(screenshotPath.text)
+        }
+    }
+
+    Button
+    {
+        id: clearButton
+        anchors.top: videoPath.bottom
+        anchors.left: screenshotButton.right
+        anchors.right: imageRect.left
+        width: defaultButtonWidth
+        height: defaultButtonHeight
+        text: "Clear"
+
+        onClicked: {
+            VideoStreamer.clearScreenshotFolder()
+        }
+    }
+
+    TextField
+    {
+        id:videoPath
+        anchors.top: startButton.bottom
+        anchors.left: parent.left
+        anchors.right: imageRect.left
+        text: "/dev/video0"
+        width: defaultButtonWidth * 2
+        height: defaultButtonHeight / 2
+        cursorVisible: true
+    }
+
+    TextField
+    {
+        id:screenshotPath
+        anchors.top: screenshotButton.bottom
+        anchors.left: parent.left
+        anchors.right: imageRect.left
+        text: "./screenshots"
+        width: defaultButtonWidth * 2
+        height: defaultButtonHeight / 2
+        cursorVisible: true
+        enabled: false
+    }
 
     Rectangle
     {
         id: imageRect
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.top: parent.top
+        //anchors.left: closeButton.right
+        anchors.right: parent.right
         width: 320
         height: 240
-
         color: "transparent"
         border.color: "black"
         border.width: 3
@@ -37,59 +127,6 @@ Window {
                 source = "image://live/image?id=" + counter
             }
         }
-    }
-
-    Button
-    {
-        id: startButton
-        x: imageRect.x/2 - startButton.width/2
-        y: imageRect.height/6 + imageRect.y
-        text: "Open"
-
-        onClicked: {
-            VideoStreamer.openVideoCamera(videoPath.text)
-            opencvImage.visible = true
-        }
-    }
-
-    Button
-    {
-        id: closeButton
-        anchors.top: startButton.top
-        anchors.left: startButton.right
-        width: startButton.width
-        text: "Close"
-
-        onClicked: {
-            VideoStreamer.closeVideoCamera()
-            opencvImage.visible = false
-        }
-    }
-
-    Button
-    {
-        id: screenshotButton
-        anchors.top: startButton.bottom
-        anchors.left: startButton.left
-        anchors.right: startButton.right
-
-        text: "Screenshot"
-
-        onClicked: {
-            VideoStreamer.takeScreenshot()
-        }
-    }
-
-    TextField
-    {
-        id:videoPath
-        text: "/dev/video0"
-        x: startButton.x - startButton.width
-        y: startButton.y + startButton.height * 2
-        placeholderText: "Video Path or Video Index"
-        cursorVisible: true
-
-        width: startButton.width * 3
     }
 
     Connections

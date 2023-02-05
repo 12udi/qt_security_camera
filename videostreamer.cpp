@@ -1,12 +1,15 @@
 #include "videostreamer.h"
 #include <QDateTime>
+#include <filesystem>
 
 VideoStreamer::VideoStreamer()
   : m_CurrentFrame()
   , m_VideoCapture()
   , m_RefreshTime()
   , m_CameraIsOpen(false)
-  , m_DevicePath("/dev/video0")
+  , m_FolderExists(false)
+  , m_DevicePath("0")
+  , m_ScreenshotPath("~/screenshots")
 {
   connect(&m_RefreshTime, &QTimer::timeout, this, &VideoStreamer::streamVideo);
 }
@@ -28,11 +31,16 @@ VideoStreamer::streamVideo()
 }
 
 void
-VideoStreamer::takeScreenshot()
+VideoStreamer::takeScreenshot(QString screenshotPath)
 {
   if (!m_CameraIsOpen) {
     std::cerr << "open stream first before taking screenshot" << std::endl;
     return;
+  }
+
+  if (!m_FolderExists) {
+    m_FolderExists = std::filesystem::create_directories(screenshotPath.toStdString());
+    m_ScreenshotPath = screenshotPath;
   }
 
   cv::Mat save_img;
@@ -40,10 +48,22 @@ VideoStreamer::takeScreenshot()
 
   if (save_img.empty()) {
     std::cerr << "Something is wrong with the webcam, could not get frame." << std::endl;
+  } else {
+    std::string fileName = screenshotPath.toStdString() + "/" + getTimestamp() + ".jpg";
+    cv::imwrite(fileName, save_img);
   }
+}
 
-  std::string fileName = "screenshots/" + getTimestamp() + ".jpg";
-  cv::imwrite(fileName, save_img);
+void
+VideoStreamer::clearScreenshotFolder()
+{
+  uint32_t error = std::filesystem::remove_all(m_ScreenshotPath.toStdString());
+
+  if (error == 2 || error == 0) {
+    m_FolderExists = false;
+  } else {
+    std::cout << "Error: " << strerror(error) << std::endl;
+  }
 }
 
 std::string

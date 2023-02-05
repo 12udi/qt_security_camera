@@ -20,14 +20,17 @@ public:
 public slots:
   void openVideoCamera(QString devicePath);
   void closeVideoCamera();
-  void takeScreenshot();
+  void takeScreenshot(QString screenshotPath);
+  void clearScreenshotFolder();
 
 private:
   cv::Mat m_CurrentFrame;
   cv::VideoCapture m_VideoCapture;
   QTimer m_RefreshTime;
   bool m_CameraIsOpen;
+  bool m_FolderExists;
   QString m_DevicePath;
+  QString m_ScreenshotPath;
   std::string getTimestamp();
 
 signals:
