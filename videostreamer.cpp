@@ -1,4 +1,5 @@
 #include "videostreamer.h"
+#include <QDateTime>
 
 VideoStreamer::VideoStreamer()
   : m_CurrentFrame()
@@ -41,8 +42,16 @@ VideoStreamer::takeScreenshot()
     std::cerr << "Something is wrong with the webcam, could not get frame." << std::endl;
   }
 
-  // Save the frame into a file
-  cv::imwrite("test.jpg", save_img);
+  std::string fileName = "screenshots/" + getTimestamp() + ".jpg";
+  cv::imwrite(fileName, save_img);
+}
+
+std::string
+VideoStreamer::getTimestamp()
+{
+  QDateTime now = QDateTime::currentDateTime();
+  QString timestamp = now.toString(QLatin1String("ddMMyyyy-hhmmss"));
+  return QString::fromLatin1("pic%1").arg(timestamp).toStdString();
 }
 
 void

@@ -28,6 +28,7 @@ private:
   QTimer m_RefreshTime;
   bool m_CameraIsOpen;
   QString m_DevicePath;
+  std::string getTimestamp();
 
 signals:
   void newImage(QImage&);
