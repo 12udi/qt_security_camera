@@ -1,29 +1,31 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include <opencv2/opencv.hpp>
 #include "opencvimageprovider.h"
 #include "videostreamer.h"
 #include <QQmlContext>
 #include <iostream>
+#include <opencv2/opencv.hpp>
 
 using namespace cv;
 using namespace std;
 
-int main(int argc, char *argv[])
+int
+main(int argc, char* argv[])
 {
-    QGuiApplication app(argc, argv);
-    QQmlApplicationEngine engine;
-    VideoStreamer videoStreamer;
-    OpencvImageProvider *liveImageProvider(new OpencvImageProvider);
+  QGuiApplication app(argc, argv);
+  QQmlApplicationEngine engine;
+  VideoStreamer videoStreamer;
+  OpencvImageProvider* liveImageProvider(new OpencvImageProvider);
 
-    engine.rootContext()->setContextProperty("VideoStreamer",&videoStreamer);
-    engine.rootContext()->setContextProperty("liveImageProvider",liveImageProvider);
-    engine.addImageProvider("live",liveImageProvider);
-    const QUrl url(QStringLiteral("qrc:/tabs/main_ui.qml"));
-    engine.load(url);
+  engine.rootContext()->setContextProperty("VideoStreamer", &videoStreamer);
+  engine.rootContext()->setContextProperty("liveImageProvider", liveImageProvider);
+  engine.addImageProvider("live", liveImageProvider);
+  const QUrl url(QStringLiteral("qrc:/tabs/main_ui.qml"));
+  engine.load(url);
 
-    QObject::connect(&videoStreamer,&VideoStreamer::newImage,liveImageProvider,&OpencvImageProvider::updateImage);
+  QObject::connect(
+    &videoStreamer, &VideoStreamer::newImage, liveImageProvider, &OpencvImageProvider::updateImage);
 
-    return app.exec();
+  return app.exec();
 }

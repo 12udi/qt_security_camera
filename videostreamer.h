@@ -1,36 +1,36 @@
 #ifndef VIDEOSTREAMER_H
 #define VIDEOSTREAMER_H
 
+#include <QImage>
 #include <QObject>
 #include <QTimer>
-#include <opencv2/highgui.hpp>
-#include <QImage>
 #include <iostream>
+#include <opencv2/highgui.hpp>
 
-class VideoStreamer: public QObject
+class VideoStreamer : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 public:
-    VideoStreamer();
-    ~VideoStreamer();
+  VideoStreamer();
+  ~VideoStreamer();
 
 public:
-    void streamVideo();
+  void streamVideo();
 
 public slots:
-    void openVideoCamera(QString devicePath);
-    void closeVideoCamera();
-    void takeScreenshot();
+  void openVideoCamera(QString devicePath);
+  void closeVideoCamera();
+  void takeScreenshot();
 
 private:
-    cv::Mat m_CurrentFrame;
-    cv::VideoCapture m_VideoCapture;
-    QTimer m_RefreshTime;
-    bool m_CameraIsOpen;
-    QString m_DevicePath;
+  cv::Mat m_CurrentFrame;
+  cv::VideoCapture m_VideoCapture;
+  QTimer m_RefreshTime;
+  bool m_CameraIsOpen;
+  QString m_DevicePath;
 
 signals:
-    void newImage(QImage &);
+  void newImage(QImage&);
 };
 
 #endif // VIDEOSTREAMER_H
