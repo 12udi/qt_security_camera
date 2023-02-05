@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.15.0)
 project(qt-cam-app VERSION 0.2.0)
 
+set(QT_CREATOR_SKIP_CONAN_SETUP ON)
+set(OpenCV_DIR /home/rudi/build/)
+
 #include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 
 set(CMAKE_AUTOMOC ON)
