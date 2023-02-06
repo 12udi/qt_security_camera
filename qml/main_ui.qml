@@ -102,7 +102,6 @@ Window {
     {
         id: imageRect
         anchors.top: parent.top
-        //anchors.left: closeButton.right
         anchors.right: parent.right
         width: 320
         height: 240
@@ -127,6 +126,19 @@ Window {
                 source = "image://live/image?id=" + counter
             }
         }
+
+    }
+
+    Rectangle
+    {
+        id: detectRect
+        anchors.top: imageRect.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        color: VideoStreamer.recognizedMotion ? "green" : "red"
+        border.color: "black"
+        border.width: 3
     }
 
     Connections
@@ -137,5 +149,6 @@ Window {
         {
             opencvImage.reload()
         }
+
     }
 }
