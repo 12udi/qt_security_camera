@@ -3,108 +3,128 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.0
 
 Window {
-    width: 640
-    height: 320
+    id: mainWindow
+    width: 1024
+    height: 600
     visible: true
     title: qsTr("CameraLiveView")
 
-    property int defaultButtonWidth: 160
-    property int defaultButtonHeight: 80
+    property int defaultButtonWidth: 200
+    property int defaultButtonHeight: 100
 
-    Button
-    {
-        id: startButton
+    Column {
+
         anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.right: closeButton.left
-        width: defaultButtonWidth
-        height: defaultButtonHeight
-        text: "Open"
+        anchors.right: imageRect.left
 
-        onClicked: {
-            VideoStreamer.openVideoCamera(videoPath.text)
-            opencvImage.visible = true
+        Switch {
+            id: connectCamera
+            text: "Camera Status"
+
+            width: defaultButtonWidth
+            height: defaultButtonHeight
+
+            onClicked: {
+                if (position == 1.0) {
+                    opencvImage.visible = true
+                    VideoStreamer.openVideoCamera(videoPath.text)
+                } else {
+                    opencvImage.visible = false
+                    VideoStreamer.closeVideoCamera()
+                }
+            }
+        }
+
+        TextField
+        {
+            id:videoPath
+            text: "/dev/video0"
+
+            width: defaultButtonWidth
+            height: defaultButtonHeight
+
+            cursorVisible: true
+        }
+
+        Switch {
+            id: enableMotionDetect
+            text: "Motion Detection"
+
+            width: defaultButtonWidth
+            height: defaultButtonHeight
+
+            onClicked: {
+                if (position == 1.0) {
+                    //enable motion detect
+                } else {
+                    //disable motion detect
+                }
+            }
+        }
+
+        TextField
+        {
+            id:screenshotPath
+            text: "./screenshots"
+            width: defaultButtonWidth * 2
+            height: defaultButtonHeight / 2
+            cursorVisible: true
+            enabled: false
         }
     }
 
-    Button
-    {
-        id: closeButton
-        anchors.top: parent.top
-        anchors.left: startButton.right
-        anchors.right: imageRect.left
-        width: defaultButtonWidth
-        height: defaultButtonHeight
-        text: "Close"
+    //    Button
+    //    {
+    //        id: screenshotButton
+    //        anchors.top: videoPath.bottom
+    //        anchors.left: parent.left
+    //        anchors.right: clearButton.left
+    //        width: defaultButtonWidth
+    //        height: defaultButtonHeight
+    //        text: "Screenshot"
 
-        onClicked: {
-            VideoStreamer.closeVideoCamera()
-            opencvImage.visible = false
-        }
-    }
+    //        onClicked: {
+    //            VideoStreamer.takeScreenshot(screenshotPath.text)
+    //        }
+    //    }
 
-    Button
-    {
-        id: screenshotButton
-        anchors.top: videoPath.bottom
-        anchors.left: parent.left
-        anchors.right: clearButton.left
-        width: defaultButtonWidth
-        height: defaultButtonHeight
-        text: "Screenshot"
+    //    Button
+    //    {
+    //        id: clearButton
+    //        anchors.top: videoPath.bottom
+    //        anchors.left: screenshotButton.right
+    //        anchors.right: imageRect.left
+    //        width: defaultButtonWidth
+    //        height: defaultButtonHeight
+    //        text: "Clear"
 
-        onClicked: {
-            VideoStreamer.takeScreenshot(screenshotPath.text)
-        }
-    }
+    //        onClicked: {
+    //            VideoStreamer.clearScreenshotFolder()
+    //        }
+    //    }
 
-    Button
-    {
-        id: clearButton
-        anchors.top: videoPath.bottom
-        anchors.left: screenshotButton.right
-        anchors.right: imageRect.left
-        width: defaultButtonWidth
-        height: defaultButtonHeight
-        text: "Clear"
+    //    Button
+    //    {
+    //        id: clearButton
+    //        anchors.top: videoPath.bottom
+    //        anchors.left: screenshotButton.right
+    //        anchors.right: imageRect.left
+    //        width: defaultButtonWidth
+    //        height: defaultButtonHeight
+    //        text: "Close App"
 
-        onClicked: {
-            VideoStreamer.clearScreenshotFolder()
-        }
-    }
-
-    TextField
-    {
-        id:videoPath
-        anchors.top: startButton.bottom
-        anchors.left: parent.left
-        anchors.right: imageRect.left
-        text: "/dev/video0"
-        width: defaultButtonWidth * 2
-        height: defaultButtonHeight / 2
-        cursorVisible: true
-    }
-
-    TextField
-    {
-        id:screenshotPath
-        anchors.top: screenshotButton.bottom
-        anchors.left: parent.left
-        anchors.right: imageRect.left
-        text: "./screenshots"
-        width: defaultButtonWidth * 2
-        height: defaultButtonHeight / 2
-        cursorVisible: true
-        enabled: false
-    }
+    //        onClicked: {
+    //            VideoStreamer.clearScreenshotFolder()
+    //        }
+    //    }
 
     Rectangle
     {
         id: imageRect
         anchors.top: parent.top
         anchors.right: parent.right
-        width: 320
-        height: 240
+        width: 640
+        height: 480
         color: "transparent"
         border.color: "black"
         border.width: 3
@@ -127,28 +147,33 @@ Window {
             }
         }
 
-    }
+        //    }
 
-    Rectangle
-    {
-        id: detectRect
-        anchors.top: imageRect.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        color: VideoStreamer.recognizedMotion ? "green" : "red"
-        border.color: "black"
-        border.width: 3
-    }
+        //    Rectangle
+        //    {
+        //        id: detectRect
+        //        anchors.top: imageRect.bottom
+        //        anchors.left: parent.left
+        //        anchors.right: parent.right
+        //        anchors.bottom: parent.bottom
+        //        color: VideoStreamer.recognizedMotion ? "green" : "red"
+        //        border.color: "black"
+        //        border.width: 3
+        //    }
 
-    Connections
-    {
-        target: liveImageProvider
+        //    Connections
+        //    {
+        //        target: liveImageProvider
 
-        function onImageChanged()
-        {
-            opencvImage.reload()
+        //        function onImageChanged()
+        //        {
+        //            opencvImage.reload()
+        //        }
+
+        //    }
+
+        Component.onCompleted: {
+            mainWindow.showFullScreen();
         }
-
     }
 }

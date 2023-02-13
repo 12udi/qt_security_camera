@@ -45,6 +45,10 @@ VideoStreamer::streamVideo()
   if (m_MotionDetectionActive) {
     m_RecognizedMotion = checkFrame(m_CurrentFrame, m_PrevFrame, THRESHOLD_DIFF);
     emit recognizedChanged(m_RecognizedMotion);
+
+    if(m_RecognizedMotion == true) {
+        takeScreenshot(m_ScreenshotPath);
+    }
   }
 }
 
@@ -56,9 +60,6 @@ VideoStreamer::checkFrame(const cv::Mat& frame, const cv::Mat& prevFrame, int th
   cv::Mat diffFrame;
   cv::Mat thresholdFrame;
   bool result = false;
-
-  //  cv::imshow("frame", frame);
-  //  cv::imshow("prevframe", prevFrame);
 
   cv::cvtColor(frame, grayFrame, cv::COLOR_BGR2GRAY);
   cv::cvtColor(prevFrame, grayPrevFrame, cv::COLOR_BGR2GRAY);
@@ -75,6 +76,8 @@ VideoStreamer::checkFrame(const cv::Mat& frame, const cv::Mat& prevFrame, int th
 void
 VideoStreamer::takeScreenshot(QString screenshotPath)
 {
+  std::cout << __func__ << std::endl;
+
   if (!m_CameraIsOpen) {
     std::cerr << "open stream first before taking screenshot" << std::endl;
     return;
@@ -122,8 +125,12 @@ VideoStreamer::openVideoCamera(QString devicePath)
     m_VideoCapture.open(devicePath.toStdString());
   }
 
+  m_VideoCapture.set(cv::CAP_PROP_FRAME_WIDTH, 640);
+  m_VideoCapture.set(cv::CAP_PROP_FRAME_HEIGHT, 480);
+  m_VideoCapture.set(cv::CAP_PROP_FPS, 10);
+
   double fps = m_VideoCapture.get(cv::CAP_PROP_FPS);
-  m_RefreshTime.start(REFRESH_MULTIPLIER / fps);
+  m_RefreshTime.start(1000 / fps);
   m_CameraIsOpen = true;
 }
 

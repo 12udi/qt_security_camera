@@ -6,7 +6,7 @@
 #include <QTimer>
 #include <iostream>
 #include <opencv2/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/imgproc.hpp>
 
 class VideoStreamer : public QObject
 {
@@ -27,7 +27,7 @@ public slots:
   void clearScreenshotFolder();
 
 private:
-  static constexpr int REFRESH_MULTIPLIER = 1000;
+  static constexpr int AVERAGE_FRAMES_MULTIPLIER = 1000;
 
   cv::Mat m_CurrentFrame;
   cv::Mat m_PrevFrame;
