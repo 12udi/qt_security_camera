@@ -25,6 +25,8 @@ public slots:
   void closeVideoCamera();
   void takeScreenshot(QString screenshotPath);
   void clearScreenshotFolder();
+  std::string gstreamer_pipeline(int device, int capture_width, int capture_height, int framerate, int display_width, int display_height);
+
 
 private:
   static constexpr int REFRESH_MULTIPLIER = 1000;

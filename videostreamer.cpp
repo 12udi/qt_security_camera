@@ -1,5 +1,4 @@
 #include "videostreamer.h"
-
 #include <QDateTime>
 #include <filesystem>
 
@@ -57,8 +56,7 @@ VideoStreamer::checkFrame(const cv::Mat& frame, const cv::Mat& prevFrame, int th
   cv::Mat thresholdFrame;
   bool result = false;
 
-  //  cv::imshow("frame", frame);
-  //  cv::imshow("prevframe", prevFrame);
+  cv::imshow("test", frame);
 
   cv::cvtColor(frame, grayFrame, cv::COLOR_BGR2GRAY);
   cv::cvtColor(prevFrame, grayPrevFrame, cv::COLOR_BGR2GRAY);
@@ -113,18 +111,44 @@ VideoStreamer::getTimestamp()
   return QString::fromLatin1("pic%1").arg(timestamp).toStdString();
 }
 
-void
-VideoStreamer::openVideoCamera(QString devicePath)
-{
-  if (devicePath.length() == 1) {
-    m_VideoCapture.open(devicePath.toInt());
-  } else {
-    m_VideoCapture.open(devicePath.toStdString());
-  }
+std::string VideoStreamer::gstreamer_pipeline(int device, int capture_width, int capture_height, int framerate, int display_width, int display_height) {
+    return
+            " libcamerasrc !"
+            " video/x-raw,"
+            " width=(int)" + std::to_string(capture_width) + ","
+            " height=(int)" + std::to_string(capture_height) + ","
+            " framerate=(fraction)" + std::to_string(framerate) +"/1 !"
+            " videoconvert ! videoscale !"
+            " video/x-raw,"
+            " width=(int)" + std::to_string(display_width) + ","
+            " height=(int)" + std::to_string(display_height) + " ! appsink";
+}
 
-  double fps = m_VideoCapture.get(cv::CAP_PROP_FPS);
-  m_RefreshTime.start(REFRESH_MULTIPLIER / fps);
-  m_CameraIsOpen = true;
+void
+VideoStreamer::openVideoCamera(QString /*devicePath*/)
+{
+    int device = 0;                 //0=raspicam 1=usb webcam (when both are connected)
+    int capture_width = 1280 ;
+    int capture_height = 720 ;
+    int framerate = 30 ;
+    int display_width = 1280 ;
+    int display_height = 720 ;
+
+    std::string pipeline = gstreamer_pipeline(device,
+                                              capture_width, capture_height, framerate,
+                                              display_width, display_height);
+    std::cout << "Using pipeline: \n\t" << pipeline << "\n\n\n";
+
+    cv::VideoCapture cap(pipeline, cv::CAP_GSTREAMER);
+    if(!cap.isOpened()) {
+        std::cout<<"Failed to open camera."<<std::endl;
+        return;
+    }
+    m_VideoCapture = cap;
+
+    double fps = m_VideoCapture.get(cv::CAP_PROP_FPS);
+    m_RefreshTime.start(REFRESH_MULTIPLIER / fps);
+    m_CameraIsOpen = true;
 }
 
 void

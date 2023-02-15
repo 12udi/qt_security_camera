@@ -3,8 +3,7 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.0
 
 Window {
-    width: 640
-    height: 320
+    id: main
     visible: true
     title: qsTr("CameraLiveView")
 
@@ -79,7 +78,7 @@ Window {
         anchors.top: startButton.bottom
         anchors.left: parent.left
         anchors.right: imageRect.left
-        text: "/dev/video0"
+        text: "/dev/v4l"
         width: defaultButtonWidth * 2
         height: defaultButtonHeight / 2
         cursorVisible: true
@@ -103,8 +102,8 @@ Window {
         id: imageRect
         anchors.top: parent.top
         anchors.right: parent.right
-        width: 320
-        height: 240
+        width: 1280
+        height: 720
         color: "transparent"
         border.color: "black"
         border.width: 3
@@ -126,7 +125,6 @@ Window {
                 source = "image://live/image?id=" + counter
             }
         }
-
     }
 
     Rectangle
@@ -136,7 +134,7 @@ Window {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        color: VideoStreamer.recognizedMotion ? "green" : "red"
+        color: VideoStreamer.m_RecognizedMotion ? "green" : "red"
         border.color: "black"
         border.width: 3
     }
@@ -150,5 +148,9 @@ Window {
             opencvImage.reload()
         }
 
+    }
+
+    Component.onCompleted: {
+        main.showFullScreen();
     }
 }
