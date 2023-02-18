@@ -1,0 +1,75 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 0,
+			"id" : "qt-cam-app_qmlimportscan::@145eef247bfb46b6828c"
+		},
+		{
+			"id" : "qt-cam-app_autogen_timestamp_deps::@145eef247bfb46b6828c"
+		}
+	],
+	"id" : "qt-cam-app_autogen::@145eef247bfb46b6828c",
+	"isGeneratorProvided" : true,
+	"name" : "qt-cam-app_autogen",
+	"paths" : 
+	{
+		"build" : "src",
+		"source" : "src"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/build-qt_security_camera-Desktop-Debug/src/CMakeFiles/qt-cam-app_autogen",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/build-qt_security_camera-Desktop-Debug/src/CMakeFiles/qt-cam-app_autogen.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/build-qt_security_camera-Desktop-Debug/src/qt-cam-app_autogen/timestamp.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

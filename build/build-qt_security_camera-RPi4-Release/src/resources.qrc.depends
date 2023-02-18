@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="MainUI.qml">qml/MainUI.qml</file>
+        <file alias="LiveView.qml">qml/LiveView.qml</file>
+        <file alias="TopBar.qml">qml/TopBar.qml</file>
+        <file alias="Controls.qml">qml/Controls.qml</file>
+        <file alias="CustomSwitch.qml">qml/CustomSwitch.qml</file>
+    </qresource>
+</RCC>
