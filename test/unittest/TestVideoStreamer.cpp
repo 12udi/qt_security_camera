@@ -35,10 +35,21 @@ TEST(TestVideoStreamer, TOOGLE_DEVICE_WEB_CAM) {
     EXPECT_EQ(DEVICE::WEBCAM_USB, streamer.activeDevId());
 }
 
-TEST(TestVideoStreamer, TOOGLE_CONNECTION_ON){
+TEST(TestVideoStreamer, TOOGLE_CONNECTION_FAILED_TO_OPEN_DEVICE) {
     using namespace cat::cam;
     VideoStreamer streamer{};
-    bool expectOn = true;
+    bool setOn = true;
+    bool expectOff = false;
+    streamer.toggleConnection(setOn);
+    EXPECT_EQ(expectOff, streamer.camEnabled());
+}
+
+TEST(TestVideoStreamer, TOOGLE_CONNECTION_OFF){
+    using namespace cat::cam;
+    VideoStreamer streamer{};
+    bool expectOff = false;
+    streamer.toggleConnection(expectOff);
+    EXPECT_EQ(expectOff, streamer.camEnabled());
 }
 
 } // end namespace test

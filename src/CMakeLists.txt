@@ -26,7 +26,9 @@ qt_add_executable(${TARGET_NAME}
     )
 
 target_compile_definitions(${TARGET_NAME}
-    PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
+    PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>
+    )
+
 target_link_libraries(${TARGET_NAME}
     PRIVATE Qt6::Core
     PRIVATE Qt6::Quick
