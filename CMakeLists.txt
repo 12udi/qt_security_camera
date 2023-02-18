@@ -20,4 +20,6 @@ endif()
 set(TARGET_NAME cat_cam_app)
 
 add_subdirectory(src)
-add_subdirectory(test)
+if (${CMAKE_CXX_COMPILER} STREQUAL "/usr/bin/g++")
+    add_subdirectory(test)
+endif()
