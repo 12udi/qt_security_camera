@@ -27,4 +27,16 @@ Item {
             opencvImage.reload()
         }
     }
+
+    Connections {
+        target: videoStreamer
+
+        function onCamEnabledChanged(onoff) {
+            opencvImage.visible = onoff
+        }
+
+        function onRecognized(yesno) {
+            videoStreamer.takeScreenshot()
+        }
+    }
 }

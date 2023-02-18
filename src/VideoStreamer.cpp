@@ -15,7 +15,7 @@ VideoStreamer::VideoStreamer()
     , m_recognized(false)
     , m_activeDevId(DEVICE::RPI_CAM)
     , m_devPath(QString{"/dev/video0"})
-    , m_screenshotFolder(QString("~/screenshots"))
+    , m_screenshotFolder(QString("./screenshots"))
 {
     connect(&m_refreshTime, &QTimer::timeout, this, &VideoStreamer::streamVideo);
 }
@@ -77,6 +77,9 @@ void VideoStreamer::toggleConnection(bool onoff)
 bool
 VideoStreamer::checkFrame(const cv::Mat& frame, const cv::Mat& prevFrame, int threshold) const
 {
+    cv::Mat rotatedFrame;
+    cv::rotate(frame, rotatedFrame, 90);
+
     cv::Mat grayFrame;
     cv::Mat grayPrevFrame;
     cv::Mat diffFrame;

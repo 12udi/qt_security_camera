@@ -1,7 +1,7 @@
 .cmake
 CMakeFiles
 CMakeLists.txt.user
-build
+build*
 dist
 etc
 

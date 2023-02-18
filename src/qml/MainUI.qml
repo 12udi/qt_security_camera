@@ -26,10 +26,11 @@ Window {
         }
     }
 
-    Item {
+    Rectangle {
         id: controls
         anchors { top: parent.top; left: parent.left; bottom: parent.bottom }
         width: parent.width - camera.width
+        border.color: "black"
 
         Controls {
             anchors.fill: parent

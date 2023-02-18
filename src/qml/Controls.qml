@@ -93,7 +93,7 @@ Item {
 
         CustomSwitch {
             id: camOnline
-            anchors {top: parent.top; topMargin: 10; left: parent.left; leftMargin: 20 }
+            anchors { top: parent.top; topMargin: 10; left: parent.left; leftMargin: 20 }
             property bool backend: false
             textLeft: 'OFF'; textRight: 'ON'
             checked: backend
