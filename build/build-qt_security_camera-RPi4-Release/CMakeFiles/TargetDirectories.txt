@@ -1,8 +1,0 @@
-/home/rudi/qt_security_camera/build/build-qt_security_camera-RPi4-Release/CMakeFiles/edit_cache.dir
-/home/rudi/qt_security_camera/build/build-qt_security_camera-RPi4-Release/CMakeFiles/rebuild_cache.dir
-/home/rudi/qt_security_camera/build/build-qt_security_camera-RPi4-Release/src/CMakeFiles/qt-cam-app.dir
-/home/rudi/qt_security_camera/build/build-qt_security_camera-RPi4-Release/src/CMakeFiles/qt-cam-app_qmlimportscan.dir
-/home/rudi/qt_security_camera/build/build-qt_security_camera-RPi4-Release/src/CMakeFiles/edit_cache.dir
-/home/rudi/qt_security_camera/build/build-qt_security_camera-RPi4-Release/src/CMakeFiles/rebuild_cache.dir
-/home/rudi/qt_security_camera/build/build-qt_security_camera-RPi4-Release/src/CMakeFiles/qt-cam-app_autogen_timestamp_deps.dir
-/home/rudi/qt_security_camera/build/build-qt_security_camera-RPi4-Release/src/CMakeFiles/qt-cam-app_autogen.dir

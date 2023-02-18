@@ -1,9 +1,0 @@
--rootPath
-/home/rudi/qt_security_camera/src
--cmake-output
--output-file
-/home/rudi/qt_security_camera/build/build-qt_security_camera-Desktop-Debug/src/.qt_plugins/Qt6_QmlPlugins_Imports_qt-cam-app.cmake
--importPath
-/home/rudi/qt_security_camera/build/build-qt_security_camera-Desktop-Debug/src
--importPath
-/home/rudi/qt-host/./qml

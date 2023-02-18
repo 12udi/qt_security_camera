@@ -13,7 +13,7 @@ VideoStreamer::VideoStreamer()
     , m_motionEnabled(false)
     , m_camEnabled(false)
     , m_recognized(false)
-    , m_devId(DEVICE::RPI_CAM)
+    , m_activeDevId(DEVICE::RPI_CAM)
     , m_devPath(QString{"/dev/video0"})
     , m_screenshotFolder(QString("~/screenshots"))
 {
@@ -59,9 +59,9 @@ void VideoStreamer::toggleMotion(bool onoff)
 void VideoStreamer::toggleDevice(bool onoff)
 {
     if (DEVICE::RPI_CAM == onoff) {
-        emit (m_devId = 0);
+        emit (m_activeDevId = 0);
     } else {
-        emit (m_devId = 1);
+        emit (m_activeDevId = 1);
     }
 }
 
@@ -147,10 +147,10 @@ VideoStreamer::openVideoCamera()
 {
     if(!m_camEnabled)
     {
-        if(DEVICE::RPI_CAM == m_devId) {
+        if(DEVICE::RPI_CAM == m_activeDevId) {
             m_videoCapture.open(buildPipeline(CAPTURE_WIDTH, CAPTURE_HEIGHT, FRAMERATE, DISPLAY_WIDTH, DISPLAY_HEIGHT),
                                 cv::CAP_GSTREAMER);
-        } else if (DEVICE::WEBCAM_USB == m_devId) {
+        } else if (DEVICE::WEBCAM_USB == m_activeDevId) {
             m_videoCapture.open(m_devPath.toStdString());
         } else {
             std::cerr << "unsuported device" << std::endl;

@@ -16,9 +16,9 @@ namespace cat { namespace cam {
 class VideoStreamer : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(bool motionEnabled MEMBER m_motionEnabled NOTIFY motionEnabledChanged)
-    Q_PROPERTY(int  activeDeviceId MEMBER m_devId NOTIFY activeDeviceIdChanged)
-    Q_PROPERTY(bool camEnabled MEMBER m_camEnabled NOTIFY camEnabledChanged)
+    Q_PROPERTY(bool motionEnabled READ motionEnabled NOTIFY motionEnabledChanged)
+    Q_PROPERTY(int  activeDevId READ activeDevId NOTIFY activeDevIdChanged)
+    Q_PROPERTY(bool camEnabled READ camEnabled NOTIFY camEnabledChanged)
     Q_PROPERTY(bool recognized MEMBER m_recognized NOTIFY recognizedChanged)
     Q_PROPERTY(QString devPath MEMBER m_devPath NOTIFY devPathChanged)
     Q_PROPERTY(QString screenshotFolder MEMBER m_screenshotFolder NOTIFY screenshotFolderChanged)
@@ -37,6 +37,10 @@ public:
     static constexpr int DISPLAY_HEIGHT = 720 ;
     void streamVideo();
 
+    [[nodiscard]] bool motionEnabled() { return m_motionEnabled; }
+    [[nodiscard]] int activeDevId() { return m_activeDevId; }
+    [[nodiscard]] bool camEnabled() { return m_camEnabled; }
+
 public slots:
     void toggleMotion(bool onoff);
     void toggleDevice(bool onoff);
@@ -47,7 +51,7 @@ public slots:
 signals:
     void newImage(QImage&);
     void motionEnabledChanged(bool onoff);
-    void activeDeviceIdChanged(int id);
+    void activeDevIdChanged(int id);
     void camEnabledChanged(bool onoff);
     void recognizedChanged(bool yesno);
     void devPathChanged(QString path);
@@ -60,8 +64,8 @@ private:
     QTimer m_refreshTime;
     bool m_motionEnabled;
     bool m_camEnabled;
+    int m_activeDevId;
     bool m_recognized;
-    int m_devId;
     QString m_devPath;
     QString m_screenshotFolder;
 

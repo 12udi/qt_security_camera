@@ -19,25 +19,25 @@ set(HEADERS
     VideoStreamer.h
     )
 
-qt_add_executable(qt-cam-app
+qt_add_executable(${TARGET_NAME}
     ${SOURCES}
     ${HEADERS}
     ${RESOURCE_ADDED}
     )
 
-target_compile_definitions(qt-cam-app
+target_compile_definitions(${TARGET_NAME}
     PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-target_link_libraries(qt-cam-app
+target_link_libraries(${TARGET_NAME}
+    PRIVATE Qt6::Core
     PRIVATE Qt6::Quick
     PRIVATE Qt6::Gui
     PRIVATE Qt6::Qml
-    PRIVATE Qt6::Test
     PRIVATE ${OpenCV_LIBS})
 
 # Copy the distribution files
 file(MAKE_DIRECTORY ${PROJECT_SOURCE_DIR}/dist)
 file(MAKE_DIRECTORY ${PROJECT_SOURCE_DIR}/dist/bin)
 
-add_custom_command(TARGET qt-cam-app POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:qt-cam-app> "${PROJECT_SOURCE_DIR}/dist/bin"
+add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${TARGET_NAME}> "${PROJECT_SOURCE_DIR}/dist/bin"
     )

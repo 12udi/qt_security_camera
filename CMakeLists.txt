@@ -17,5 +17,7 @@ else()
     message(ERROR ${CMAKE_CXX_COMPILER} " unsupported CXX Compiler")
 endif()
 
+set(TARGET_NAME cat_cam_app)
+
 add_subdirectory(src)
-#add_subdirectory(test)
+add_subdirectory(test)
