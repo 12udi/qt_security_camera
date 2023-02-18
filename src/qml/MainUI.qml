@@ -1,4 +1,4 @@
-import QtQuick 2.12
+﻿import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.0
 
@@ -16,35 +16,38 @@ Window {
     readonly property int default_width: 200
     readonly property int default_height: 100
 
-    Item {
-        id: topBar
-        anchors { top: parent.top; left: controls.right; right: parent.right }
-        height: default_height / 4
+    Row {
 
-        TopBar {
-            anchors.fill: parent
+        anchors.fill: parent
+
+        Rectangle {
+            id: controls
+            width: 300 ; height: parent.height
+            border.color: "black"
+
+            Controls {
+                anchors.fill: parent
+            }
         }
-    }
 
-    Rectangle {
-        id: controls
-        anchors { top: parent.top; left: parent.left; bottom: parent.bottom }
-        width: parent.width - camera.width
-        border.color: "black"
+        Rectangle {
+            id: camera
+            border.color: "black"
+            width: parent.width - controls.width - rightBar.width ; height: parent.height
 
-        Controls {
-            anchors.fill: parent
+            LiveView {
+                anchors.fill: parent
+            }
         }
-    }
 
-    Rectangle {
-        id: camera
-        anchors { top: topBar.bottom; right: parent.right}
-        border.color: "black"
-        width: 960; height: 540
+        Rectangle {
+            id: rightBar
+            width: 200; height: parent.height
+            border.color: "black"
 
-        LiveView {
-            anchors.fill: parent
+            RightBar {
+                anchors.fill: parent
+            }
         }
     }
 }

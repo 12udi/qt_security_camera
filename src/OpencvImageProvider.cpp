@@ -5,7 +5,7 @@ namespace cat { namespace cam {
 OpencvImageProvider::OpencvImageProvider(QObject* /*parent*/)
   : QQuickImageProvider(QQuickImageProvider::Image)
 {
-  image = QImage(960, 560, QImage::Format_RGB32);
+  image = QImage(960, 540, QImage::Format_RGB32);
   image.fill(QColor("black"));
 }
 

@@ -28,18 +28,21 @@ public:
     ~VideoStreamer();
 
 public:
+    // opencv constants
     static constexpr int REFRESH_MULTIPLIER = 1000;
     static constexpr int THRESHOLD_DIFF = 1500;
+
+    // pipeline constants
     static constexpr int CAPTURE_WIDTH = 1280 ;
     static constexpr int CAPTURE_HEIGHT = 720 ;
     static constexpr int FRAMERATE = 30;
     static constexpr int DISPLAY_WIDTH = 960 ;
-    static constexpr int DISPLAY_HEIGHT = 720 ;
+    static constexpr int DISPLAY_HEIGHT = 560 ;
     void streamVideo();
 
-    [[nodiscard]] bool motionEnabled() { return m_motionEnabled; }
-    [[nodiscard]] int activeDevId() { return m_activeDevId; }
-    [[nodiscard]] bool camEnabled() { return m_camEnabled; }
+    [[nodiscard]] bool motionEnabled() const noexcept { return m_motionEnabled; }
+    [[nodiscard]] int activeDevId() const noexcept { return m_activeDevId; }
+    [[nodiscard]] bool camEnabled() const noexcept { return m_camEnabled; }
 
 public slots:
     void toggleMotion(bool onoff);
@@ -64,8 +67,9 @@ private:
     QTimer m_refreshTime;
     bool m_motionEnabled;
     bool m_camEnabled;
-    int m_activeDevId;
     bool m_recognized;
+    int m_activeDevId;
+    int m_frameCounter;
     QString m_devPath;
     QString m_screenshotFolder;
 

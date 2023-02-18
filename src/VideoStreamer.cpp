@@ -14,6 +14,7 @@ VideoStreamer::VideoStreamer()
     , m_camEnabled(false)
     , m_recognized(false)
     , m_activeDevId(DEVICE::RPI_CAM)
+    , m_frameCounter(0)
     , m_devPath(QString{"/dev/video0"})
     , m_screenshotFolder(QString("./screenshots"))
 {
@@ -42,9 +43,16 @@ VideoStreamer::streamVideo()
     if (m_motionEnabled) {
         m_recognized = checkFrame(m_currentFrame, m_prevFrame, THRESHOLD_DIFF);
         emit recognizedChanged(m_recognized);
+
+        if (m_frameCounter >= 50) {
+            m_videoCapture >> m_prevFrame;
+            m_frameCounter = 0;
+            std::cout << "reset framecounter: new reference picture was created";
+        } else {
+            ++m_frameCounter;
+        }
     }
 
-    m_videoCapture >> m_prevFrame;
 }
 
 void VideoStreamer::toggleMotion(bool onoff)
@@ -77,9 +85,6 @@ void VideoStreamer::toggleConnection(bool onoff)
 bool
 VideoStreamer::checkFrame(const cv::Mat& frame, const cv::Mat& prevFrame, int threshold) const
 {
-    cv::Mat rotatedFrame;
-    cv::rotate(frame, rotatedFrame, 90);
-
     cv::Mat grayFrame;
     cv::Mat grayPrevFrame;
     cv::Mat diffFrame;
@@ -137,6 +142,7 @@ std::string VideoStreamer::buildPipeline(int width, int height, int framerate, i
            << " width=(int)" << std::to_string(width) << ","
            << " height=(int)" << std::to_string(height) << ","
            << " framerate=(fraction)" << std::to_string(framerate) << "/1 !"
+           << " videoflip method=vertical-flip !"
            << " videoconvert ! videoscale ! video/x-raw,"
            << " width=(int)" << std::to_string(displayWidth) << ","
            << " height=(int)" << std::to_string(displayHeight) << " ! appsink";
@@ -180,5 +186,5 @@ VideoStreamer::closeVideoCamera()
 }
 
 } // end namespace cam
-} // end namespace cat
+              } // end namespace cat
 

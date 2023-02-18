@@ -10,6 +10,8 @@ Item {
         fillMode: Image.PreserveAspectFit
         property bool counter: false
         visible: false
+        rotation: 90
+        mirror: true
         source: "image://live/image"
         asynchronous: false
         cache: false
@@ -36,7 +38,9 @@ Item {
         }
 
         function onRecognized(yesno) {
-            videoStreamer.takeScreenshot()
+            if(true === yesno) {
+                videoStreamer.takeScreenshot()
+            }
         }
     }
 }
