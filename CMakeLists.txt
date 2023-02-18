@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.15.0)
 project(qt-cam-app VERSION 0.2.0)
 
-message(STATUS ${CMAKE_CXX_COMPILERc})
+message(STATUS ${CMAKE_CXX_COMPILER})
 set(CMAKE_AUTOMOC ON)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if (${CMAKE_CXX_COMPILER} STREQUAL "/usr/bin/g++")

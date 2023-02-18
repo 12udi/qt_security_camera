@@ -3,158 +3,172 @@
 #include <filesystem>
 
 VideoStreamer::VideoStreamer()
-  : m_CurrentFrame()
-  , m_PrevFrame()
-  , m_VideoCapture()
-  , m_RefreshTime()
-  , m_CameraIsOpen(false)
-  , m_FolderExists(false)
-  , m_MotionDetectionActive(true)
-  , m_RecognizedMotion(false)
-  , m_DevicePath("0")
-  , m_ScreenshotPath("~/screenshots")
+    : m_videoCapture(cv::VideoCapture{})
+    , m_currentFrame(cv::Mat{})
+    , m_prevFrame(cv::Mat{})
+    , m_refreshTime(0)
+    , m_motionEnabled(false)
+    , m_camEnabled(false)
+    , m_recognized(false)
+    , m_devId(DEVICE::RPI_CAM)
+    , m_devPath(QString{"/dev/video0"})
+    , m_screenshotFolder(QString("~/screenshots"))
 {
-  connect(&m_RefreshTime, &QTimer::timeout, this, &VideoStreamer::streamVideo);
+    connect(&m_refreshTime, &QTimer::timeout, this, &VideoStreamer::streamVideo);
 }
 
 VideoStreamer::~VideoStreamer()
 {
-  closeVideoCamera();
+    closeVideoCamera();
 }
 
 void
 VideoStreamer::streamVideo()
 {
-  static constexpr int THRESHOLD_DIFF = 1500;
+    m_videoCapture >> m_currentFrame;
+    QImage img = QImage(m_currentFrame.data, m_currentFrame.cols,
+                        m_currentFrame.rows, QImage::Format_RGB888).rgbSwapped();
+    emit newImage(img);
 
-  m_VideoCapture >> m_CurrentFrame;
+    if (m_prevFrame.empty()) {
+        m_videoCapture >> m_prevFrame;
+        std::cout << "m_motionEnabled: " << m_motionEnabled << std::endl;
+        return;
+    }
 
-  QImage img =
-    QImage(m_CurrentFrame.data, m_CurrentFrame.cols, m_CurrentFrame.rows, QImage::Format_RGB888)
-      .rgbSwapped();
-  emit newImage(img);
+    if (m_motionEnabled) {
+        m_recognized = checkFrame(m_currentFrame, m_prevFrame, THRESHOLD_DIFF);
+        emit recognizedChanged(m_recognized);
+    }
 
-  // handle first frame
-  if (m_PrevFrame.empty()) {
-    m_VideoCapture >> m_PrevFrame;
-    std::cout << "m_MotionDetectionActive: " << m_MotionDetectionActive << std::endl;
-    return;
-  }
+    m_videoCapture >> m_prevFrame;
+}
 
-  if (m_MotionDetectionActive) {
-    m_RecognizedMotion = checkFrame(m_CurrentFrame, m_PrevFrame, THRESHOLD_DIFF);
-    emit recognizedChanged(m_RecognizedMotion);
-  }
+void VideoStreamer::toggleMotion(bool onoff)
+{
+    if (false == onoff) {
+        emit (m_motionEnabled = false);
+    } else {
+        emit (m_motionEnabled = true);
+    }
+}
+
+void VideoStreamer::toggleDevice(bool onoff)
+{
+    if (DEVICE::RPI_CAM == onoff) {
+        emit (m_devId = 0);
+    } else {
+        emit (m_devId = 1);
+    }
+}
+
+void VideoStreamer::toggleConnection(bool onoff)
+{
+    if (false == onoff) {
+        closeVideoCamera();
+    } else {
+        openVideoCamera();
+    }
 }
 
 bool
-VideoStreamer::checkFrame(const cv::Mat& frame, const cv::Mat& prevFrame, int threshold)
+VideoStreamer::checkFrame(const cv::Mat& frame, const cv::Mat& prevFrame, int threshold) const
 {
-  cv::Mat grayFrame;
-  cv::Mat grayPrevFrame;
-  cv::Mat diffFrame;
-  cv::Mat thresholdFrame;
-  bool result = false;
+    cv::Mat grayFrame;
+    cv::Mat grayPrevFrame;
+    cv::Mat diffFrame;
+    cv::Mat thresholdFrame;
+    bool result = false;
 
-  cv::imshow("test", frame);
+    cv::cvtColor(frame, grayFrame, cv::COLOR_BGR2GRAY);
+    cv::cvtColor(prevFrame, grayPrevFrame, cv::COLOR_BGR2GRAY);
+    cv::absdiff(grayFrame, grayPrevFrame, diffFrame);
+    cv::threshold(diffFrame, thresholdFrame, 127, 1, cv::THRESH_BINARY);
 
-  cv::cvtColor(frame, grayFrame, cv::COLOR_BGR2GRAY);
-  cv::cvtColor(prevFrame, grayPrevFrame, cv::COLOR_BGR2GRAY);
-  cv::absdiff(grayFrame, grayPrevFrame, diffFrame);
-  cv::threshold(diffFrame, thresholdFrame, 127, 1, cv::THRESH_BINARY);
+    if (cv::countNonZero(thresholdFrame) >= threshold) {
+        result = true;
+    }
 
-  if (cv::countNonZero(thresholdFrame) >= threshold) {
-    result = true;
-  }
-
-  return result;
+    return result;
 }
 
 void
-VideoStreamer::takeScreenshot(QString screenshotPath)
+VideoStreamer::takeScreenshot()
 {
-  if (!m_CameraIsOpen) {
-    std::cerr << "open stream first before taking screenshot" << std::endl;
-    return;
-  }
+    if(!m_camEnabled) {
+        std::cerr << "open stream first before taking screenshot" << std::endl;
+        return;
+    }
+    std::filesystem::create_directories(m_screenshotFolder.toStdString());
 
-  if (!m_FolderExists) {
-    m_FolderExists = std::filesystem::create_directories(screenshotPath.toStdString());
-    m_ScreenshotPath = screenshotPath;
-  }
-
-  if (m_CurrentFrame.empty()) {
-    std::cerr << "Something is wrong with the webcam, could not get frame." << std::endl;
-  } else {
-    std::string fileName = screenshotPath.toStdString() + "/" + getTimestamp() + ".jpg";
-    cv::imwrite(fileName, m_CurrentFrame);
-  }
+    if (m_currentFrame.empty()) {
+        std::cerr << "Something is wrong with the webcam, could not get frame." << std::endl;
+    } else {
+        std::string fileName = m_screenshotFolder.toStdString() + "/" + getTimestamp() + ".jpg";
+        cv::imwrite(fileName, m_currentFrame);
+    }
 }
 
 void
 VideoStreamer::clearScreenshotFolder()
 {
-  uint32_t error = std::filesystem::remove_all(m_ScreenshotPath.toStdString());
-
-  if (error == 2 || error == 0) {
-    m_FolderExists = false;
-  } else {
+    uint32_t error = std::filesystem::remove_all(m_screenshotFolder.toStdString());
     std::cout << "Error: " << strerror(error) << std::endl;
-  }
 }
 
 std::string
-VideoStreamer::getTimestamp()
+VideoStreamer::getTimestamp() const
 {
-  QDateTime now = QDateTime::currentDateTime();
-  QString timestamp = now.toString(QLatin1String("ddMMyyyy-hhmmss"));
-  return QString::fromLatin1("pic%1").arg(timestamp).toStdString();
+    QDateTime now = QDateTime::currentDateTime();
+    QString timestamp = now.toString(QLatin1String("ddMMyyyy-hhmmss"));
+    return QString::fromLatin1("pic%1").arg(timestamp).toStdString();
 }
 
-std::string VideoStreamer::gstreamer_pipeline(int device, int capture_width, int capture_height, int framerate, int display_width, int display_height) {
-    return
-            " libcamerasrc !"
-            " video/x-raw,"
-            " width=(int)" + std::to_string(capture_width) + ","
-            " height=(int)" + std::to_string(capture_height) + ","
-            " framerate=(fraction)" + std::to_string(framerate) +"/1 !"
-            " videoconvert ! videoscale !"
-            " video/x-raw,"
-            " width=(int)" + std::to_string(display_width) + ","
-            " height=(int)" + std::to_string(display_height) + " ! appsink";
+std::string VideoStreamer::buildPipeline(int width, int height, int framerate, int displayWidth, int displayHeight) const
+{
+    std::stringstream stream{};
+    stream << " libcamerasrc ! video/x-raw, "
+           << " width=(int)" << std::to_string(width) << ","
+           << " height=(int)" << std::to_string(height) << ","
+           << " framerate=(fraction)" << std::to_string(framerate) << "/1 !"
+           << " videoconvert ! videoscale ! video/x-raw,"
+           << " width=(int)" << std::to_string(displayWidth) << ","
+           << " height=(int)" << std::to_string(displayHeight) << " ! appsink";
+
+    std::cout << "Using pipeline: \n\t" << stream.str() << "\n\n\n";
+    return stream.str();
 }
 
 void
-VideoStreamer::openVideoCamera(QString /*devicePath*/)
+VideoStreamer::openVideoCamera()
 {
-    int device = 0;                 //0=raspicam 1=usb webcam (when both are connected)
-    int capture_width = 1280 ;
-    int capture_height = 720 ;
-    int framerate = 30 ;
-    int display_width = 1280 ;
-    int display_height = 720 ;
+    if(!m_camEnabled)
+    {
+        if(DEVICE::RPI_CAM == m_devId) {
+            m_videoCapture.open(buildPipeline(CAPTURE_WIDTH, CAPTURE_HEIGHT, FRAMERATE, DISPLAY_WIDTH, DISPLAY_HEIGHT),
+                                cv::CAP_GSTREAMER);
+        } else if (DEVICE::WEBCAM_USB == m_devId) {
+            m_videoCapture.open(m_devPath.toStdString());
+        } else {
+            std::cerr << "unsuported device" << std::endl;
+            return;
+        }
 
-    std::string pipeline = gstreamer_pipeline(device,
-                                              capture_width, capture_height, framerate,
-                                              display_width, display_height);
-    std::cout << "Using pipeline: \n\t" << pipeline << "\n\n\n";
-
-    cv::VideoCapture cap(pipeline, cv::CAP_GSTREAMER);
-    if(!cap.isOpened()) {
-        std::cout<<"Failed to open camera."<<std::endl;
-        return;
+        if(!m_videoCapture.isOpened()) {
+            std::cout<<"Failed to open camera."<<std::endl;
+            return;
+        }
     }
-    m_VideoCapture = cap;
 
-    double fps = m_VideoCapture.get(cv::CAP_PROP_FPS);
-    m_RefreshTime.start(REFRESH_MULTIPLIER / fps);
-    m_CameraIsOpen = true;
+    emit camEnabledChanged(m_camEnabled = true);
+    double fps = m_videoCapture.get(cv::CAP_PROP_FPS);
+    m_refreshTime.start(REFRESH_MULTIPLIER / fps);
 }
 
 void
 VideoStreamer::closeVideoCamera()
 {
-  m_VideoCapture.release();
-  m_RefreshTime.stop();
-  m_CameraIsOpen = false;
+    m_videoCapture.release();
+    m_refreshTime.stop();
+    emit camEnabledChanged(m_camEnabled = false);
 }
