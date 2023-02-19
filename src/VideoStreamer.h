@@ -35,9 +35,11 @@ public:
     // pipeline constants
     static constexpr int CAPTURE_WIDTH = 1280 ;
     static constexpr int CAPTURE_HEIGHT = 720 ;
-    static constexpr int FRAMERATE = 30;
     static constexpr int DISPLAY_WIDTH = 960 ;
     static constexpr int DISPLAY_HEIGHT = 560 ;
+    static constexpr int FRAMERATE = 30;
+
+    static constexpr int THRESHOLD_REFRESH_FRAME_COUNTER = 9000;
     void streamVideo();
 
     [[nodiscard]] bool motionEnabled() const noexcept { return m_motionEnabled; }

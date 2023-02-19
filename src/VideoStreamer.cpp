@@ -44,7 +44,7 @@ VideoStreamer::streamVideo()
         m_recognized = checkFrame(m_currentFrame, m_prevFrame, THRESHOLD_DIFF);
         emit recognizedChanged(m_recognized);
 
-        if (m_frameCounter >= 50) {
+        if (m_frameCounter >= THRESHOLD_REFRESH_FRAME_COUNTER) {
             m_videoCapture >> m_prevFrame;
             m_frameCounter = 0;
             std::cout << "reset framecounter: new reference picture was created";
@@ -52,7 +52,6 @@ VideoStreamer::streamVideo()
             ++m_frameCounter;
         }
     }
-
 }
 
 void VideoStreamer::toggleMotion(bool onoff)

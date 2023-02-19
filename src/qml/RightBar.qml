@@ -22,7 +22,7 @@ Item {
     Connections {
         target: videoStreamer
 
-        function onRecognized(yesno) {
+        function onRecognizedChanged(yesno) {
             if(true === yesno) {
                 detectRect.color = "green"
                 videoStreamer.takeScreenshot()
