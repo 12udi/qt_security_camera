@@ -16,10 +16,11 @@ namespace cat { namespace cam {
 class VideoStreamer : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(bool motionEnabled READ motionEnabled NOTIFY motionEnabledChanged)
+    Q_PROPERTY(double averageFps READ averageFps NOTIFY averageFpsChanged)
     Q_PROPERTY(int  activeDevId READ activeDevId NOTIFY activeDevIdChanged)
+    Q_PROPERTY(bool motionEnabled READ motionEnabled NOTIFY motionEnabledChanged)
     Q_PROPERTY(bool camEnabled READ camEnabled NOTIFY camEnabledChanged)
-    Q_PROPERTY(bool recognized MEMBER m_recognized NOTIFY recognizedChanged)
+    Q_PROPERTY(bool recognized READ recognized NOTIFY recognizedChanged)
     Q_PROPERTY(QString devPath MEMBER m_devPath NOTIFY devPathChanged)
     Q_PROPERTY(QString screenshotFolder MEMBER m_screenshotFolder NOTIFY screenshotFolderChanged)
 
@@ -39,12 +40,15 @@ public:
     static constexpr int DISPLAY_HEIGHT = 560 ;
     static constexpr int FRAMERATE = 30;
 
+    //Its over 9000! 30 fps -> 9000 frames == 5min
     static constexpr int THRESHOLD_REFRESH_FRAME_COUNTER = 9000;
     void streamVideo();
 
+    [[nodiscard]] bool recognized() const noexcept { return m_recognized; }
     [[nodiscard]] bool motionEnabled() const noexcept { return m_motionEnabled; }
     [[nodiscard]] int activeDevId() const noexcept { return m_activeDevId; }
     [[nodiscard]] bool camEnabled() const noexcept { return m_camEnabled; }
+    [[nodiscard]] double averageFps() const noexcept { return m_averageFps; }
 
 public slots:
     void toggleMotion(bool onoff);
@@ -61,6 +65,7 @@ signals:
     void recognizedChanged(bool yesno);
     void devPathChanged(QString path);
     void screenshotFolderChanged(QString folder);
+    void averageFpsChanged(int fps);
 
 private:
     cv::VideoCapture m_videoCapture;
@@ -72,11 +77,13 @@ private:
     bool m_recognized;
     int m_activeDevId;
     int m_frameCounter;
+    double m_averageFps;
     QString m_devPath;
     QString m_screenshotFolder;
 
     void openVideoCamera();
     void closeVideoCamera();
+    void handleMotion();
     [[nodiscard]] std::string getTimestamp() const;
     [[nodiscard]] bool checkFrame(cv::Mat const& frame, cv::Mat const& prevFrame, int threshold) const;
     [[nodiscard]] std::string buildPipeline(int width, int height, int framerate, int displayWidth, int displayHeight) const;

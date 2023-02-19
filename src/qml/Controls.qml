@@ -34,11 +34,12 @@ Item {
     }
 
     Item {
-        id: detectSwitch
+        id: motionSwitch
         anchors { top: detectHeader.bottom; left: parent.left; right: parent.right }
         width: default_width; height: default_height * 3/4
 
         CustomSwitch {
+            id: motionEnabled
             anchors {top: parent.top; topMargin: 10; left: parent.left; leftMargin: 20 }
             property bool backend: false
             textLeft: 'OFF'; textRight: 'ON'
@@ -53,7 +54,7 @@ Item {
 
     Item {
         id: hardwareHeader
-        anchors { top: detectSwitch.bottom; left: parent.left; right: parent.right }
+        anchors { top: motionSwitch.bottom; left: parent.left; right: parent.right }
         height: 10
 
         Label { anchors.left: parent.left; anchors.leftMargin: 20; text: qsTr("CHOOSE DEVICE:") }
@@ -65,6 +66,7 @@ Item {
         width: default_width; height: default_height * 3/4
 
         CustomSwitch {
+            id: hardwareSelector
             anchors {top: parent.top; topMargin: 10; left: parent.left; leftMargin: 20 }
             property bool backend: false
             textLeft: 'Pi CAM'; textRight: 'USB CAM'
@@ -92,7 +94,7 @@ Item {
         width: default_width; height: default_height * 3/4
 
         CustomSwitch {
-            id: camOnline
+            id: camEnabled
             anchors { top: parent.top; topMargin: 10; left: parent.left; leftMargin: 20 }
             property bool backend: false
             textLeft: 'OFF'; textRight: 'ON'
@@ -125,5 +127,35 @@ Item {
         onClicked: {
             videoStreamer.clearScreenshotFolder()
         }
+    }
+
+    Connections {
+        target: videoStreamer
+
+        function onMotionEnabledChanged(onoff) {
+            motionEnabled.checked = onoff;
+        }
+
+        function onActiveDevIdChanged(id) {
+            if (0 === id) {
+                hardwareSelector.checked = false;
+            } else {
+                hardwareSelector.checked = true;
+            }
+        }
+
+        function onCamEnabledChanged(onoff) {
+            camEnabled.checked = onoff;
+        }
+    }
+
+    Component.onCompleted: {
+        // autoconnect
+        videoStreamer.toggleMotion(true)
+        motionEnabled.checked = true;
+        videoStreamer.toggleDevice(false)
+        hardwareSelector.checked = false
+        videoStreamer.toggleConnection(true)
+        camEnabled.checked = true;
     }
 }

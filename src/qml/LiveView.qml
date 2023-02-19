@@ -36,11 +36,5 @@ Item {
         function onCamEnabledChanged(onoff) {
             opencvImage.visible = onoff
         }
-
-        function onRecognized(yesno) {
-            if(true === yesno) {
-                videoStreamer.takeScreenshot()
-            }
-        }
     }
 }

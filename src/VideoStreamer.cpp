@@ -14,6 +14,7 @@ VideoStreamer::VideoStreamer()
     , m_camEnabled(false)
     , m_recognized(false)
     , m_activeDevId(DEVICE::RPI_CAM)
+    , m_averageFps(0.)
     , m_frameCounter(0)
     , m_devPath(QString{"/dev/video0"})
     , m_screenshotFolder(QString("./screenshots"))
@@ -41,16 +42,7 @@ VideoStreamer::streamVideo()
     }
 
     if (m_motionEnabled) {
-        m_recognized = checkFrame(m_currentFrame, m_prevFrame, THRESHOLD_DIFF);
-        emit recognizedChanged(m_recognized);
-
-        if (m_frameCounter >= THRESHOLD_REFRESH_FRAME_COUNTER) {
-            m_videoCapture >> m_prevFrame;
-            m_frameCounter = 0;
-            std::cout << "reset framecounter: new reference picture was created";
-        } else {
-            ++m_frameCounter;
-        }
+        handleMotion();
     }
 }
 
@@ -172,8 +164,8 @@ VideoStreamer::openVideoCamera()
     }
 
     emit camEnabledChanged(m_camEnabled = true);
-    double fps = m_videoCapture.get(cv::CAP_PROP_FPS);
-    m_refreshTime.start(REFRESH_MULTIPLIER / fps);
+    emit averageFpsChanged(m_averageFps = m_videoCapture.get(cv::CAP_PROP_FPS));
+    m_refreshTime.start(REFRESH_MULTIPLIER / m_averageFps);
 }
 
 void
@@ -184,6 +176,24 @@ VideoStreamer::closeVideoCamera()
     emit camEnabledChanged(m_camEnabled = false);
 }
 
+void VideoStreamer::handleMotion()
+{
+    m_recognized = checkFrame(m_currentFrame, m_prevFrame, THRESHOLD_DIFF);
+    emit recognizedChanged(m_recognized);
+
+    if (m_recognized) {
+        takeScreenshot();
+    }
+
+    if (m_frameCounter >= THRESHOLD_REFRESH_FRAME_COUNTER) {
+        m_videoCapture >> m_prevFrame;
+        m_frameCounter = 0;
+        std::cout << "reset framecounter: new reference picture was created";
+    } else {
+        ++m_frameCounter;
+    }
+}
+
 } // end namespace cam
-              } // end namespace cat
+} // end namespace cat
 

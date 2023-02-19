@@ -50,6 +50,10 @@ Window {
             }
         }
     }
+
+    Component.onCompleted: {
+        main.showFullScreen();
+    }
 }
 
 

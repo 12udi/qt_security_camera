@@ -15,20 +15,23 @@ Item {
     Rectangle
     {
         id: detectRect
-        anchors { top: exit.bottom; left: parent.left; right: parent.right; bottom: parent.bottom }
-        color: "red"
+        anchors { top: exit.bottom; left: parent.left; right: parent.right }
+        height: 100
+        color: videoStreamer.recognized ? "green" : "red"
     }
 
-    Connections {
-        target: videoStreamer
+    Rectangle
+    {
+        id: frameRect
+        anchors { top: detectRect.bottom; left: parent.left; right: parent.right }
+        height: 30
 
-        function onRecognizedChanged(yesno) {
-            if(true === yesno) {
-                detectRect.color = "green"
-                videoStreamer.takeScreenshot()
-            } else {
-                detectRect.color = "red"
-            }
+        Label {
+            anchors.centerIn: parent
+            font.pixelSize: 0.5 * frameRect.height
+            text: videoStreamer.averageFps
         }
+
+        color: videoStreamer.recognized ? "green" : "red"
     }
 }
