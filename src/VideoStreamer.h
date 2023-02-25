@@ -56,13 +56,17 @@ public slots:
     void toggleConnection(bool onoff);
     void takeScreenshot();
     void clearScreenshotFolder();
+    void autoconnect();
 
 signals:
     void newImage(QImage&);
+
     void motionEnabledChanged(bool onoff);
     void activeDevIdChanged(int id);
     void camEnabledChanged(bool onoff);
+
     void recognizedChanged(bool yesno);
+
     void devPathChanged(QString path);
     void screenshotFolderChanged(QString folder);
     void averageFpsChanged(int fps);

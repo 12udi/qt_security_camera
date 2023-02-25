@@ -7,7 +7,7 @@ import "." // adding all qmls in qml folder to project
 Window {
     id: main
     visible: true
-    title: qsTr("DAT CAM")
+    title: qsTr("CAT CAM")
 
     //needed for desktop build!
     width: 1280
@@ -52,7 +52,7 @@ Window {
     }
 
     Component.onCompleted: {
-        main.showFullScreen();
+        //main.showFullScreen();
     }
 }
 

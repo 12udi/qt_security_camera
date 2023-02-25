@@ -49,19 +49,21 @@ VideoStreamer::streamVideo()
 void VideoStreamer::toggleMotion(bool onoff)
 {
     if (false == onoff) {
-        emit (m_motionEnabled = false);
+        m_motionEnabled = false;
     } else {
-        emit (m_motionEnabled = true);
+        m_motionEnabled = true;
     }
+    emit motionEnabledChanged(m_motionEnabled);
 }
 
 void VideoStreamer::toggleDevice(bool onoff)
 {
     if (DEVICE::RPI_CAM == onoff) {
-        emit (m_activeDevId = 0);
+        m_activeDevId = 0;
     } else {
-        emit (m_activeDevId = 1);
+        m_activeDevId = 1;
     }
+    emit activeDevIdChanged(m_activeDevId);
 }
 
 void VideoStreamer::toggleConnection(bool onoff)
@@ -86,6 +88,8 @@ VideoStreamer::checkFrame(const cv::Mat& frame, const cv::Mat& prevFrame, int th
     cv::cvtColor(prevFrame, grayPrevFrame, cv::COLOR_BGR2GRAY);
     cv::absdiff(grayFrame, grayPrevFrame, diffFrame);
     cv::threshold(diffFrame, thresholdFrame, 127, 1, cv::THRESH_BINARY);
+
+//    cv::imshow("thresh", thresholdFrame);
 
     if (cv::countNonZero(thresholdFrame) >= threshold) {
         result = true;
@@ -116,6 +120,13 @@ VideoStreamer::clearScreenshotFolder()
 {
     uint32_t error = std::filesystem::remove_all(m_screenshotFolder.toStdString());
     std::cout << "Error: " << strerror(error) << std::endl;
+}
+
+void VideoStreamer::autoconnect()
+{
+    toggleMotion(true);
+    toggleDevice(false);
+    toggleConnection(true);
 }
 
 std::string

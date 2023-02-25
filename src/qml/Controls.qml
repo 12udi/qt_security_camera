@@ -133,10 +133,13 @@ Item {
         target: videoStreamer
 
         function onMotionEnabledChanged(onoff) {
+            console.log("onMotionEnabledChanged", onoff)
             motionEnabled.checked = onoff;
         }
 
         function onActiveDevIdChanged(id) {
+            console.log("onActiveDevIdChanged", id)
+
             if (0 === id) {
                 hardwareSelector.checked = false;
             } else {
@@ -145,17 +148,13 @@ Item {
         }
 
         function onCamEnabledChanged(onoff) {
+            console.log("onCamEnabledChanged", onoff)
             camEnabled.checked = onoff;
         }
     }
 
     Component.onCompleted: {
-        // autoconnect
-        videoStreamer.toggleMotion(true)
-        motionEnabled.checked = true;
-        videoStreamer.toggleDevice(false)
-        hardwareSelector.checked = false
-        videoStreamer.toggleConnection(true)
-        camEnabled.checked = true;
+        videoStreamer.autoconnect()
+
     }
 }
