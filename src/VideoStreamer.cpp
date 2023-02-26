@@ -89,7 +89,7 @@ VideoStreamer::checkFrame(const cv::Mat& frame, const cv::Mat& prevFrame, int th
     cv::absdiff(grayFrame, grayPrevFrame, diffFrame);
     cv::threshold(diffFrame, thresholdFrame, 127, 1, cv::THRESH_BINARY);
 
-//    cv::imshow("thresh", thresholdFrame);
+    cv::imshow("thresh", thresholdFrame);
 
     if (cv::countNonZero(thresholdFrame) >= threshold) {
         result = true;
@@ -110,8 +110,12 @@ VideoStreamer::takeScreenshot()
     if (m_currentFrame.empty()) {
         std::cerr << "Something is wrong with the webcam, could not get frame." << std::endl;
     } else {
+        cv::Mat rotate_90;
+        cv::Mat flip_horizontal;
+        cv::rotate(m_currentFrame, rotate_90, cv::ROTATE_90_COUNTERCLOCKWISE);
+        cv::flip(rotate_90, flip_horizontal, 1);
         std::string fileName = m_screenshotFolder.toStdString() + "/" + getTimestamp() + ".jpg";
-        cv::imwrite(fileName, m_currentFrame);
+        cv::imwrite(fileName, flip_horizontal);
     }
 }
 
